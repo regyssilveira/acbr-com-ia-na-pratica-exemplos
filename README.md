@@ -17,6 +17,7 @@ project/    aplicação evolutiva Caixa Ágil
 chapters/   exemplos independentes estritamente necessários
 fixtures/   dados e artefatos fictícios e anonimizados
 scripts/    compilação, testes e validações
+skills/     skill ACBr reutilizável apresentada no Capítulo 3
 manifest/   estado e evidências de cada exemplo
 docs/       ambiente e decisões técnicas
 ```
