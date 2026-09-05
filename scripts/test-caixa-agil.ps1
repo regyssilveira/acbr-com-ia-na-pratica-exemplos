@@ -1,5 +1,6 @@
 param(
-    [string]$RadStudioRoot = 'C:\Program Files (x86)\Embarcadero\Studio\37.0'
+    [string]$RadStudioRoot = 'C:\Program Files (x86)\Embarcadero\Studio\37.0',
+    [string]$AcbrLibrary = 'D:\Delphi\ACBr\Lib\Delphi\LibD37\Win32'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -9,10 +10,11 @@ $tests = Join-Path $PSScriptRoot '..\tests\CaixaAgil.Tests.dpr'
 
 if (-not (Test-Path -LiteralPath $compiler)) { throw "Compilador não encontrado: $compiler" }
 if (-not (Test-Path -LiteralPath (Join-Path $dunitx 'DUnitX.TestFramework.dcu'))) { throw "DUnitX não encontrado: $dunitx" }
+if (-not (Test-Path -LiteralPath (Join-Path $AcbrLibrary 'ACBrNFe.dcu'))) { throw "ACBr não encontrado: $AcbrLibrary" }
 
 Push-Location (Split-Path -Parent $tests)
 try {
-    & $compiler '-B' '-Q' "-U$dunitx" (Split-Path -Leaf $tests)
+    & $compiler '-B' '-Q' "-U$dunitx;$AcbrLibrary" (Split-Path -Leaf $tests)
     if ($LASTEXITCODE -ne 0) { throw "Compilação dos testes falhou: $LASTEXITCODE" }
     & .\CaixaAgil.Tests.exe
     if ($LASTEXITCODE -ne 0) { throw "Testes falharam: $LASTEXITCODE" }

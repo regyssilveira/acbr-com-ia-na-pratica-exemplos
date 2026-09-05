@@ -15,16 +15,21 @@ type
     [Test] procedure TimeoutBecomesUncertainResult;
     [Test] procedure LogSanitizerRemovesPassword;
     [Test] procedure ProductionConfigurationIsRejected;
+    [Test] procedure ExampleConfigurationLoadsAndValidates;
+    [Test] procedure TechnicalMapperCreatesDraftInACBr;
   end;
 
 implementation
 
 uses
   System.SysUtils,
+  System.IOUtils,
+  ACBrNFe,
   CaixaAgil.Application.Emission,
   CaixaAgil.Configuration,
   CaixaAgil.Domain.Emission,
   CaixaAgil.Domain.Sale,
+  CaixaAgil.Fiscal.Mapper,
   CaixaAgil.Infrastructure;
 
 type
@@ -88,6 +93,33 @@ begin
   Config.State := 'MG';
   Config.OutputPath := 'output';
   Assert.WillRaise(procedure begin Config.ValidateLocal; end, EArgumentException);
+end;
+
+procedure TDomainTests.ExampleConfigurationLoadsAndValidates;
+var Config: TFiscalConfiguration; FileName: string;
+begin
+  FileName := TPath.GetFullPath(
+    '..\project\CaixaAgil\config\appsettings.example.ini');
+  Config := TFiscalConfiguration.LoadFromIni(FileName);
+  Config.ValidateLocal(False);
+  Assert.AreEqual('homologation', Config.Environment);
+  Assert.AreEqual('MG', Config.State);
+end;
+
+procedure TDomainTests.TechnicalMapperCreatesDraftInACBr;
+var Component: TACBrNFe; Mapper: TTechnicalNFCeMapper;
+begin
+  Component := TACBrNFe.Create(nil);
+  try
+    Mapper := TTechnicalNFCeMapper.Create(Component);
+    try
+      Mapper.MapDraft(TSale.Fictional);
+      Assert.AreEqual(1, Component.NotasFiscais.Count);
+      Assert.AreEqual(2, Component.NotasFiscais[0].NFe.Det.Count);
+      Assert.AreEqual<Currency>(39.80,
+        Component.NotasFiscais[0].NFe.Total.ICMSTot.vNF);
+    finally Mapper.Free; end;
+  finally Component.Free; end;
 end;
 
 initialization

@@ -11,7 +11,8 @@ uses
   CaixaAgil.Domain.Emission in '..\project\CaixaAgil\src\CaixaAgil.Domain.Emission.pas',
   CaixaAgil.Infrastructure in '..\project\CaixaAgil\src\CaixaAgil.Infrastructure.pas',
   CaixaAgil.Application.Emission in '..\project\CaixaAgil\src\CaixaAgil.Application.Emission.pas',
-  CaixaAgil.Configuration in '..\project\CaixaAgil\src\CaixaAgil.Configuration.pas';
+  CaixaAgil.Configuration in '..\project\CaixaAgil\src\CaixaAgil.Configuration.pas',
+  CaixaAgil.Fiscal.Mapper in '..\project\CaixaAgil\src\CaixaAgil.Fiscal.Mapper.pas';
 
 var
   Runner: ITestRunner;

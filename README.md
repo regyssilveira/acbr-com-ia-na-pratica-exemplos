@@ -45,7 +45,7 @@ A versão do Delphi, a revisão dos fontes ACBr, as plataformas e as dependênci
 .\scripts\validate-all.ps1
 ```
 
-O comando compila a aplicação, executa seis testes DUnitX, roda os três cenários locais, grava evidência temporária em SQLite e verifica se arquivos sensíveis foram rastreados. Os diretórios de saída são ignorados pelo Git.
+O comando compila a aplicação, executa oito testes DUnitX, roda os três cenários locais, grava evidência temporária em SQLite e verifica se arquivos sensíveis foram rastreados. Os diretórios de saída são ignorados pelo Git.
 
 ## Licença
 
