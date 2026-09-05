@@ -1,0 +1,10 @@
+{
+  "number": 42,
+  "series": 1,
+  "items": [
+    {"code": "LIVRO-001", "description": "Produto fictício para homologação", "quantity": 1, "unitPrice": 29.90},
+    {"code": "ITEM-002", "description": "Item fictício de laboratório", "quantity": 2, "unitPrice": 4.95}
+  ],
+  "amountPaid": 39.80,
+  "notice": "Dados exclusivamente fictícios; não utilizar em produção."
+}

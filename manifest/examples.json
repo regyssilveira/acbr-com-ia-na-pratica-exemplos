@@ -6,9 +6,9 @@
     {
       "id": "caixa-agil",
       "chapters": [2, 3, 5, 6, 7, 8, 9, 10, 11, 12],
-      "state": "CP",
-      "evidence": ["manifest/evidence/caixa-agil-win32-2026-09-04.md"],
-      "limitations": ["O piloto implementa o esqueleto arquitetural e os estados de emissão", "Compilação Win64 ainda não comprovada", "Nenhuma operação fiscal foi executada", "Mapeamento fiscal, persistência e testes com doubles permanecem como evolução guiada pelos capítulos"]
+      "state": "EX",
+      "evidence": ["manifest/evidence/caixa-agil-win32-2026-09-04.md", "manifest/evidence/caixa-agil-local-pilot-2026-09-05.md"],
+      "limitations": ["Compilação Win64 ainda não comprovada", "Nenhuma operação fiscal externa foi executada", "O mapeador ACBr contém somente campos técnicos; emitente e tributação dependem de perfil aprovado", "Impressão, cancelamento, inutilização e contingência permanecem apenas contextualizados no livro"]
     }
   ]
 }

@@ -28,7 +28,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 104
     Width = 177
     Height = 33
-    Caption = 'Verificar ambiente'
+    Caption = 'Executar laboratório local'
     TabOrder = 0
     OnClick = btnVerificarAmbienteClick
   end

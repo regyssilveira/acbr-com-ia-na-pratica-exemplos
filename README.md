@@ -2,13 +2,13 @@
 
 Repositório público dos exemplos do livro **ACBr com IA na Prática: Inteligência artificial aplicada ao dia a dia do desenvolvimento com Delphi e ACBr**, de Régys Borges da Silveira.
 
-> Estado: preparação editorial. A estrutura e o projeto Caixa Ágil estão planejados, mas nenhum exemplo deve ser considerado compilado, executado ou revisado até que o manifesto registre essa evidência.
+> Estado: piloto executável. O manifesto registra build Win32, testes DUnitX e execução local simulada. Nenhuma operação fiscal externa foi realizada.
 
 ## Escopo
 
 Os exemplos usam diretamente os componentes ACBr em aplicações Delphi. ACBrMonitorPLUS e ACBrLib não fazem parte deste repositório. Os fontes do ACBr não são redistribuídos aqui.
 
-O fio condutor será o **Caixa Ágil**, uma aplicação Delphi VCL fictícia para demonstrar preparação e emissão de NFC-e exclusivamente em homologação, persistência, impressão e diagnóstico assistido por IA.
+O fio condutor é o **Caixa Ágil**, uma aplicação Delphi VCL fictícia. O fluxo local valida configuração e venda, simula autorização, rejeição e timeout, e persiste tentativas em SQLite. O `TACBrNFe` permanece configurado somente para homologação; envio real exige perfil fiscal e credencial aprovados.
 
 ## Organização
 
@@ -36,7 +36,15 @@ Somente exemplos em `RV` podem ser tratados como tecnicamente revisados.
 
 ## Linha de base
 
-A versão do Delphi, a revisão dos fontes ACBr, as plataformas e as dependências serão fixadas em `docs/environment.md` antes da implementação.
+A versão do Delphi, a revisão dos fontes ACBr, as plataformas e as dependências estão fixadas em `docs/environment.md`.
+
+## Executar o piloto
+
+```powershell
+.\scripts\validate-all.ps1
+```
+
+O comando compila a aplicação, executa seis testes DUnitX, roda os três cenários locais, grava evidência temporária em SQLite e verifica se arquivos sensíveis foram rastreados. Os diretórios de saída são ignorados pelo Git.
 
 ## Licença
 
