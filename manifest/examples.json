@@ -6,9 +6,9 @@
     {
       "id": "caixa-agil",
       "chapters": [2, 3, 5, 6, 7, 8, 9, 10, 11, 12],
-      "state": "PL",
-      "evidence": [],
-      "limitations": ["Linha de base técnica ainda não fixada", "Projeto ainda não implementado"]
+      "state": "CP",
+      "evidence": ["manifest/evidence/caixa-agil-win32-2026-09-04.md"],
+      "limitations": ["Somente o esqueleto inicial foi implementado", "Compilação Win64 ainda não comprovada", "Nenhuma operação fiscal foi executada"]
     }
   ]
 }

@@ -20,6 +20,7 @@ __history/
 *.env
 *.secrets.*
 config.local.*
+appsettings.local.ini
 logs/
 output/
 authorized/
@@ -28,6 +29,9 @@ cancelled/
 *.pdf
 *.sqlite
 *.db
+*.dsk
+*.dsv
+*.res
 .vs/
 .idea/
 Thumbs.db
