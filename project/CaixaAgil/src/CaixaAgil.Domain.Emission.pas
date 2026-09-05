@@ -9,7 +9,8 @@ type
     esSubmitted,
     esAuthorized,
     esRejected,
-    esFailed
+    esTechnicalFailure,
+    esUncertainResult
   );
 
   TEmissionResult = record
