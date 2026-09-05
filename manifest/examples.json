@@ -1,0 +1,14 @@
+{
+  "book": "ACBr com IA na Prática",
+  "editionTag": null,
+  "states": ["PL", "IM", "CP", "EX", "RV"],
+  "examples": [
+    {
+      "id": "caixa-agil",
+      "chapters": [2, 3, 5, 6, 7, 8, 9, 10, 11, 12],
+      "state": "PL",
+      "evidence": [],
+      "limitations": ["Linha de base técnica ainda não fixada", "Projeto ainda não implementado"]
+    }
+  ]
+}
