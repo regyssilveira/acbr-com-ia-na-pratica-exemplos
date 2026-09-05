@@ -1,6 +1,6 @@
 {
   "book": "ACBr com IA na Prática",
-  "editionTag": null,
+  "editionTag": "pilot-v0.1.0",
   "states": ["PL", "IM", "CP", "EX", "RV"],
   "examples": [
     {
