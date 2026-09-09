@@ -4,6 +4,8 @@ Repositório público dos exemplos do livro **ACBr com IA na Prática: Inteligê
 
 > Estado: piloto executável. O manifesto registra build Win32, testes DUnitX e execução local simulada. Nenhuma operação fiscal externa foi realizada.
 
+Versão correspondente à edição candidata do livro: `pilot-v0.2.0`.
+
 ## Escopo
 
 Os exemplos usam diretamente os componentes ACBr em aplicações Delphi. ACBrMonitorPLUS e ACBrLib não fazem parte deste repositório. Os fontes do ACBr não são redistribuídos aqui.
@@ -46,6 +48,10 @@ A versão do Delphi, a revisão dos fontes ACBr, as plataformas e as dependênci
 ```
 
 O comando compila a aplicação, executa oito testes DUnitX, roda os três cenários locais, grava evidência temporária em SQLite e verifica se arquivos sensíveis foram rastreados. Os diretórios de saída são ignorados pelo Git.
+
+## Skill ACBr
+
+`skills/acbr-component-work` orienta localização de APIs, início de integrações, diagnóstico e revisão de mudanças com componentes Delphi ACBr. A skill inclui scripts somente leitura, referências carregadas sob demanda e sete casos de avaliação. Consulte o laboratório correspondente no livro antes de adaptá-la ao seu ambiente.
 
 ## Licença
 
