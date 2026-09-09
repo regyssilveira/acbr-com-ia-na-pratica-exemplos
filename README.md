@@ -4,7 +4,7 @@ Repositório público dos exemplos do livro **ACBr com IA na Prática: Inteligê
 
 > Estado: piloto executável. O manifesto registra build Win32, testes DUnitX e execução local simulada. Nenhuma operação fiscal externa foi realizada.
 
-Versão correspondente à edição candidata do livro: `pilot-v0.2.0`.
+Versão correspondente à edição candidata do livro: `pilot-v0.3.0`.
 
 ## Escopo
 
@@ -19,7 +19,7 @@ project/    aplicação evolutiva Caixa Ágil
 chapters/   exemplos independentes estritamente necessários
 fixtures/   dados e artefatos fictícios e anonimizados
 scripts/    compilação, testes e validações
-skills/     skill ACBr reutilizável apresentada no Capítulo 3
+skills/     suíte de skills ACBr reutilizáveis
 manifest/   estado e evidências de cada exemplo
 docs/       ambiente e decisões técnicas
 ```
@@ -49,9 +49,16 @@ A versão do Delphi, a revisão dos fontes ACBr, as plataformas e as dependênci
 
 O comando compila a aplicação, executa oito testes DUnitX, roda os três cenários locais, grava evidência temporária em SQLite e verifica se arquivos sensíveis foram rastreados. Os diretórios de saída são ignorados pelo Git.
 
-## Skill ACBr
+## Skills ACBr
 
-`skills/acbr-component-work` orienta localização de APIs, início de integrações, diagnóstico e revisão de mudanças com componentes Delphi ACBr. A skill inclui scripts somente leitura, referências carregadas sob demanda e sete casos de avaliação. Consulte o laboratório correspondente no livro antes de adaptá-la ao seu ambiente.
+A suíte começa por `skills/acbr-component-work`, que faz a triagem geral e oferece scripts somente leitura. Quatro skills especializadas cobrem tarefas recorrentes:
+
+- `acbr-project-onboarding`: compreender um projeto existente;
+- `acbr-integration-start`: iniciar ou ampliar uma integração;
+- `acbr-problem-diagnosis`: investigar falhas e rejeições;
+- `acbr-change-review`: revisar alterações antes da aceitação.
+
+Cada skill declara limites de segurança e casos de avaliação próprios. Execute `scripts/validate-skills.ps1` para validar a estrutura e as referências da coleção. Consulte o laboratório correspondente no livro antes de adaptá-las ao seu ambiente.
 
 ## Licença
 

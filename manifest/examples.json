@@ -1,6 +1,6 @@
 {
   "book": "ACBr com IA na Prática",
-  "editionTag": "pilot-v0.2.0",
+  "editionTag": "pilot-v0.3.0",
   "states": ["PL", "IM", "CP", "EX", "RV"],
   "examples": [
     {
@@ -17,6 +17,30 @@
       "state": "RV",
       "evidence": ["manifest/evidence/acbr-component-work-2026-09-09.md"],
       "limitations": ["Os casos avaliam invariantes do procedimento e não garantem compatibilidade com toda revisão do ACBr ou versão do Delphi"]
+    },
+    {
+      "id": "acbr-project-onboarding",
+      "state": "IM",
+      "evidence": ["manifest/evidence/acbr-skills-suite-2026-09-09.md"],
+      "limitations": ["A validação estrutural não substitui avaliação comportamental em projetos Delphi reais"]
+    },
+    {
+      "id": "acbr-integration-start",
+      "state": "IM",
+      "evidence": ["manifest/evidence/acbr-skills-suite-2026-09-09.md"],
+      "limitations": ["A validação estrutural não comprova compatibilidade com toda revisão do ACBr"]
+    },
+    {
+      "id": "acbr-problem-diagnosis",
+      "state": "IM",
+      "evidence": ["manifest/evidence/acbr-skills-suite-2026-09-09.md"],
+      "limitations": ["Os casos não executam comunicação com serviços fiscais externos"]
+    },
+    {
+      "id": "acbr-change-review",
+      "state": "IM",
+      "evidence": ["manifest/evidence/acbr-skills-suite-2026-09-09.md"],
+      "limitations": ["A revisão continua dependente da linha de base e das evidências disponíveis em cada projeto"]
     }
   ]
 }

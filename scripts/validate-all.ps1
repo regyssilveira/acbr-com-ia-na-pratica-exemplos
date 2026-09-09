@@ -4,5 +4,6 @@ $ErrorActionPreference = 'Stop'
 & (Join-Path $PSScriptRoot 'test-caixa-agil.ps1')
 & (Join-Path $PSScriptRoot 'run-local-lab.ps1')
 & (Join-Path $PSScriptRoot 'verify-no-secrets.ps1')
+& (Join-Path $PSScriptRoot 'validate-skills.ps1')
 
-Write-Host 'OK: build, testes, laboratório e segurança concluídos.'
+Write-Host 'OK: build, testes, laboratório, segurança e skills concluídos.'

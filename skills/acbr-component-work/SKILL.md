@@ -7,6 +7,15 @@ description: Inicie integrações, localize APIs e demos, diagnostique falhas e 
 
 Antes de propor código, identifique a versão do Delphi, a revisão do ACBr, a plataforma e os paths efetivamente usados pelo projeto.
 
+Esta é a entrada geral da suíte. Quando uma skill especializada estiver disponível, prefira:
+
+- `acbr-project-onboarding` para compreender um projeto recebido;
+- `acbr-integration-start` para iniciar ou ampliar uma integração;
+- `acbr-problem-diagnosis` para investigar erro ou comportamento divergente;
+- `acbr-change-review` para revisar uma alteração antes de aceitá-la.
+
+Continue por esta skill quando o pedido combinar mais de um desses fluxos ou ainda não estiver delimitado.
+
 Quando o pedido chegar incompleto, leia [task-intake.md](references/task-intake.md) e reúna somente o contexto que muda a investigação.
 
 ## Fluxo
