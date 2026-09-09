@@ -18,6 +18,6 @@ Revise o diff e os arquivos afetados, não apenas a descrição da mudança. Ide
 - confira tratamento de erro, timeout, repetição, contingência e rastreabilidade quando aplicáveis;
 - exija compilação, testes e cenário executado proporcionais à mudança.
 
-Classifique achados por impacto, cite arquivo e trecho, explique o risco e indique a menor correção. Depois registre o que foi comprovado e o que permaneceu sem validação. Não aprove decisão fiscal apenas porque o código compila.
+Classifique achados como bloqueador, alto, médio ou baixo; cite arquivo e trecho, explique o risco e indique a menor correção. Depois registre separadamente evidência observada, validação executada, resultado comprovado e o que permaneceu sem validação. Não aprove decisão fiscal apenas porque o código compila.
 
 Ao alterar esta skill, execute os casos de [eval-cases.md](references/eval-cases.md).

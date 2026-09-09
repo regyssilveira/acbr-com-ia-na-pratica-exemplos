@@ -1,6 +1,6 @@
 {
   "book": "ACBr com IA na Prática",
-  "editionTag": "pilot-v0.3.0",
+  "editionTag": "pilot-v0.4.0",
   "states": ["PL", "IM", "CP", "EX", "RV"],
   "examples": [
     {
@@ -20,26 +20,26 @@
     },
     {
       "id": "acbr-project-onboarding",
-      "state": "IM",
-      "evidence": ["manifest/evidence/acbr-skills-suite-2026-09-09.md"],
-      "limitations": ["A validação estrutural não substitui avaliação comportamental em projetos Delphi reais"]
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-suite-2026-09-09.md", "manifest/evidence/acbr-skills-behavioral-review-2026-09-09.md", "manifest/evidence/evaluations/onboarding-evaluation.md"],
+      "limitations": ["Os casos são sintéticos e não garantem compatibilidade com todo projeto Delphi real"]
     },
     {
       "id": "acbr-integration-start",
-      "state": "IM",
-      "evidence": ["manifest/evidence/acbr-skills-suite-2026-09-09.md"],
-      "limitations": ["A validação estrutural não comprova compatibilidade com toda revisão do ACBr"]
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-suite-2026-09-09.md", "manifest/evidence/acbr-skills-behavioral-review-2026-09-09.md", "manifest/evidence/evaluations/integration-start-evaluation.md"],
+      "limitations": ["A avaliação não comprova compatibilidade com toda revisão do ACBr"]
     },
     {
       "id": "acbr-problem-diagnosis",
-      "state": "IM",
-      "evidence": ["manifest/evidence/acbr-skills-suite-2026-09-09.md"],
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-suite-2026-09-09.md", "manifest/evidence/acbr-skills-behavioral-review-2026-09-09.md", "manifest/evidence/evaluations/problem-diagnosis-evaluation.md"],
       "limitations": ["Os casos não executam comunicação com serviços fiscais externos"]
     },
     {
       "id": "acbr-change-review",
-      "state": "IM",
-      "evidence": ["manifest/evidence/acbr-skills-suite-2026-09-09.md"],
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-suite-2026-09-09.md", "manifest/evidence/acbr-skills-behavioral-review-2026-09-09.md", "manifest/evidence/evaluations/change-review-evaluation.md"],
       "limitations": ["A revisão continua dependente da linha de base e das evidências disponíveis em cada projeto"]
     }
   ]

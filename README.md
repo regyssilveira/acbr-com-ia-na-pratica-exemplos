@@ -4,7 +4,7 @@ Repositório público dos exemplos do livro **ACBr com IA na Prática: Inteligê
 
 > Estado: piloto executável. O manifesto registra build Win32, testes DUnitX e execução local simulada. Nenhuma operação fiscal externa foi realizada.
 
-Versão correspondente à edição candidata do livro: `pilot-v0.3.0`.
+Versão correspondente à edição candidata do livro: `pilot-v0.4.0`.
 
 ## Escopo
 
@@ -59,6 +59,8 @@ A suíte começa por `skills/acbr-component-work`, que faz a triagem geral e ofe
 - `acbr-change-review`: revisar alterações antes da aceitação.
 
 Cada skill declara limites de segurança e casos de avaliação próprios. Execute `scripts/validate-skills.ps1` para validar a estrutura e as referências da coleção. Consulte o laboratório correspondente no livro antes de adaptá-las ao seu ambiente.
+
+Veja a [árvore de decisão e as instruções de adoção](skills/README.md). As skills usam diretamente o formato do Codex; referências, scripts e avaliações podem ser adaptados a outros agentes conforme a [matriz de compatibilidade](skills/compatibility.md), sem presumir descoberta automática.
 
 ## Licença
 

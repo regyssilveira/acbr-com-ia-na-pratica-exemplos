@@ -16,9 +16,10 @@ Registre versão do aplicativo, Delphi, revisão ACBr, plataforma, componente, a
 1. Reproduza localmente ou declare por que a reprodução não foi possível.
 2. Classifique a falha: compilação, carga, configuração, certificado, schema, comunicação, retorno do serviço, mapeamento ou ciclo de vida visual.
 3. Compare execução boa e ruim, mudando uma variável por vez.
-4. Confira símbolos e comportamento nos fontes e demos da revisão instalada.
-5. Ordene hipóteses pela evidência e proponha o teste mais barato que consiga refutar a primeira.
+4. Em falha visual, compare o par PAS/DFM e verifique classe, herança, criação, eventos e ordem de vida.
+5. Confira símbolos e comportamento nos fontes e demos da revisão instalada e confirme quais paths ou DCUs o build resolveu.
+6. Ordene hipóteses pela evidência e proponha o teste de menor custo e risco, sem efeito externo, que consiga refutar a primeira.
 
-Entregue fatos observados, lacunas, hipóteses ordenadas, teste seguinte, critério de conclusão e evidências a preservar. Não altere path ou DCU durante o diagnóstico inicial, não converta rejeição em regra fiscal própria e não chame serviço externo sem autorização.
+Entregue fatos observados, lacunas e hipóteses ordenadas. Para cada hipótese, registre evidência favorável, evidência contrária ou ausente, teste discriminador e resultado. Termine com critério de conclusão e evidências a preservar. Não altere path ou DCU durante o diagnóstico inicial, não converta rejeição em regra fiscal própria e não chame serviço externo sem autorização.
 
 Ao alterar esta skill, execute os casos de [eval-cases.md](references/eval-cases.md).
