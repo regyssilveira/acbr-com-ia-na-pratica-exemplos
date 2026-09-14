@@ -11,10 +11,12 @@ type
   public
     [Test] procedure FictionalSaleTotalsAndValidates;
     [Test] procedure EmptySaleIsRejected;
+    [Test] procedure ZeroQuantityIsRejected;
     [Test] procedure PaymentDifferenceIsRejected;
     [Test] procedure TimeoutBecomesUncertainResult;
     [Test] procedure LogSanitizerRemovesPassword;
     [Test] procedure ProductionConfigurationIsRejected;
+    [Test] procedure MissingSchemaDirectoryIsRejected;
     [Test] procedure ExampleConfigurationLoadsAndValidates;
     [Test] procedure TechnicalMapperCreatesDraftInACBr;
   end;
@@ -63,6 +65,14 @@ begin
   Assert.WillRaise(procedure begin Sale.Validate; end, EArgumentException);
 end;
 
+procedure TDomainTests.ZeroQuantityIsRejected;
+var Sale: TSale;
+begin
+  Sale := TSale.Fictional;
+  Sale.Items[0].Quantity := 0;
+  Assert.WillRaise(procedure begin Sale.Validate; end, EArgumentOutOfRangeException);
+end;
+
 procedure TDomainTests.PaymentDifferenceIsRejected;
 var Sale: TSale;
 begin
@@ -93,6 +103,16 @@ begin
   Config.State := 'MG';
   Config.OutputPath := 'output';
   Assert.WillRaise(procedure begin Config.ValidateLocal; end, EArgumentException);
+end;
+
+procedure TDomainTests.MissingSchemaDirectoryIsRejected;
+var Config: TFiscalConfiguration;
+begin
+  Config.Environment := 'homologation';
+  Config.State := 'MG';
+  Config.SchemaPath := TPath.Combine(TPath.GetTempPath, 'caixa-agil-schema-inexistente-' + TGUID.NewGuid.ToString);
+  Config.OutputPath := 'output';
+  Assert.WillRaise(procedure begin Config.ValidateLocal(False); end, EDirectoryNotFoundException);
 end;
 
 procedure TDomainTests.ExampleConfigurationLoadsAndValidates;
