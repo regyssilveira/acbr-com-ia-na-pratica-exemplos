@@ -1,4 +1,4 @@
-param(
+﻿param(
     [ValidateSet('Win32')]
     [string]$Platform = 'Win32',
     [string]$RadStudioRoot = 'C:\Program Files (x86)\Embarcadero\Studio\37.0',

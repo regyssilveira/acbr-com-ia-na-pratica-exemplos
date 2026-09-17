@@ -1,4 +1,4 @@
-unit CaixaAgil.Configuration;
+﻿unit CaixaAgil.Configuration;
 
 interface
 

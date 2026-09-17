@@ -1,0 +1,31 @@
+{
+  "protocol": "docs/behavioral-evaluation-protocol.md",
+  "status": "complete",
+  "reports": [
+    "task-foundation-evaluation.md",
+    "task-operations-evaluation.md",
+    "family-business-evaluation.md",
+    "family-infrastructure-evaluation.md"
+  ],
+  "batches": [
+    {
+      "id": "task-foundation",
+      "skills": ["acbr-environment-setup", "acbr-version-update", "acbr-build-troubleshooting", "acbr-runtime-diagnosis", "acbr-test-design"]
+    },
+    {
+      "id": "task-operations",
+      "skills": ["acbr-configuration-review", "acbr-response-handling", "acbr-logging-evidence", "acbr-performance-review", "acbr-security-review", "acbr-support-request"]
+    },
+    {
+      "id": "family-business",
+      "skills": ["acbr-dfe", "acbr-payments", "acbr-fiscal-devices"]
+    },
+    {
+      "id": "family-infrastructure",
+      "skills": ["acbr-text-obligations", "acbr-printing", "acbr-communication"]
+    }
+  ],
+  "caseLabels": ["Normal", "Ambíguo", "Limite"],
+  "expectedSkills": 17,
+  "expectedCases": 51
+}

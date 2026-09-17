@@ -1,7 +1,7 @@
 object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
-  Caption = 'Caixa Ágil — laboratório ACBr'
+  Caption = 'Caixa '#193'gil '#8212' laborat'#243'rio ACBr'
   ClientHeight = 360
   ClientWidth = 640
   Position = poScreenCenter
@@ -11,7 +11,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 24
     Width = 257
     Height = 23
-    Caption = 'Caixa Ágil — ambiente de laboratório'
+    Caption = 'Caixa '#193'gil '#8212' ambiente de laborat'#243'rio'
     Font.Height = -19
     Font.Style = [fsBold]
     ParentFont = False
@@ -21,14 +21,14 @@ object frmPrincipal: TfrmPrincipal
     Top = 64
     Width = 387
     Height = 15
-    Caption = 'Somente dados fictícios e serviços de homologação são permitidos.'
+    Caption = 'Somente dados fict'#237'cios e servi'#231'os de homologa'#231#227'o s'#227'o permitidos.'
   end
   object btnVerificarAmbiente: TButton
     Left = 24
     Top = 104
     Width = 177
     Height = 33
-    Caption = 'Executar laboratório local'
+    Caption = 'Executar laborat'#243'rio local'
     TabOrder = 0
     OnClick = btnVerificarAmbienteClick
   end

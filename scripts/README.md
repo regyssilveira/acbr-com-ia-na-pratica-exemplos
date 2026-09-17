@@ -3,5 +3,19 @@
 - `build-caixa-agil.ps1`: compila a aplicação VCL Win32 contra os DCUs ACBr registrados.
 - `test-caixa-agil.ps1`: compila e executa a suíte DUnitX.
 - `run-local-lab.ps1`: executa autorização, rejeição e timeout simulados e persiste em SQLite.
+- `run-payments-lab.ps1`: valida estados fictícios de PIX e Boleto, inclusive resultado incerto, sem comunicação externa.
+- `run-text-lab.ps1`: gera e valida um leiaute TXT didático com hierarquia, totalização e UTF-8.
+- `run-certificate-lab.ps1`: valida quatro cenários fictícios de certificado e ambiente sem acessar certificados reais.
+- `run-version-update-lab.ps1`: demonstra uma análise sintética de símbolos mantidos, removidos e adicionados.
+- `find-skill.ps1`: sugere skills a partir da descrição cotidiana de um problema.
+- `install-skills.ps1`: simula instalação/atualização por padrão e cria backup quando executado com `-Apply`.
+- `acbr-doctor.ps1`: reúne diagnóstico somente de leitura do projeto e da árvore ACBr informada.
+- `new-support-bundle.ps1`: cria pacote local com diagnóstico, logs sanitizados e roteiro de suporte.
+- `check-public-sync.ps1`: confirma que a tag e o catálogo esperado já estão públicos no GitHub.
+- `sanitize-acbr-log.ps1`: cria cópia sanitizada e relatório sem sobrescrever o log original.
+- `compare-acbr-symbols.ps1`: compara ocorrências de símbolos entre dois checkouts ACBr em modo somente leitura.
+- `inspect-delphi-paths.ps1`: inventaria paths literais e DCUs duplicados a partir de um `.dproj`.
+- `test-skill-tools.ps1`: testa as três ferramentas em uma pasta temporária.
 - `verify-no-secrets.ps1`: falha se Git rastrear certificado, XML, banco ou senha preenchida.
-- `validate-all.ps1`: pré-voo e gate agregado do piloto; aceita `-RadStudioRoot` e `-AcbrLibrary`. Recria `lab/output/caixa-agil.sqlite`; veja `docs/primeiros-passos.md`.
+- `validate-behavioral-suite.ps1`: verifica se cada skill `IM` possui casos normal, ambíguo e limite preparados.
+- `validate-all.ps1`: pré-voo e gate agregado do piloto; aceita `-RadStudioRoot` e `-AcbrLibrary`. Recria saídas locais do laboratório; veja `docs/primeiros-passos.md`.

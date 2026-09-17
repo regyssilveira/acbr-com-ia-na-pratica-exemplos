@@ -13,6 +13,17 @@ Esta é a entrada geral da suíte. Quando uma skill especializada estiver dispon
 - `acbr-integration-start` para iniciar ou ampliar uma integração;
 - `acbr-problem-diagnosis` para investigar erro ou comportamento divergente;
 - `acbr-change-review` para revisar uma alteração antes de aceitá-la.
+- `acbr-environment-setup` para instalação, packages, paths e DCUs;
+- `acbr-version-update` para migrar entre revisões;
+- `acbr-build-troubleshooting` para falhas de compilação e linking;
+- `acbr-runtime-diagnosis` para exceções, timeout, travamento e encoding;
+- `acbr-test-design` para fixtures, dublês e testes locais.
+- `acbr-configuration-review` para valores efetivos e diferenças entre ambientes;
+- `acbr-response-handling` para estados, timeout e idempotência;
+- `acbr-logging-evidence` para evidências mínimas e sanitizadas;
+- `acbr-performance-review` para lentidão, lotes e bloqueio da interface;
+- `acbr-security-review` para segredos, dados e efeitos externos;
+- `acbr-support-request` para preparar um relato reproduzível.
 
 Continue por esta skill quando o pedido combinar mais de um desses fluxos ou ainda não estiver delimitado.
 
@@ -29,6 +40,8 @@ Quando o pedido chegar incompleto, leia [task-intake.md](references/task-intake.
 7. Aplique o gate correspondente em [validation-gates.md](references/validation-gates.md).
 
 Leia [source-map.md](references/source-map.md) quando precisar decidir onde pesquisar na árvore ACBr.
+
+Quando o pedido já identificar o domínio, combine a skill de tarefa com a família correspondente: `acbr-dfe`, `acbr-payments`, `acbr-fiscal-devices`, `acbr-text-obligations`, `acbr-printing` ou `acbr-communication`. A família fornece invariantes do componente; a skill de tarefa define o trabalho a executar.
 
 - Para erros, retornos e comportamento divergente, leia [diagnostic-playbook.md](references/diagnostic-playbook.md).
 - Para formulários, DataModules, eventos ou componentes, leia [pas-dfm-review.md](references/pas-dfm-review.md).

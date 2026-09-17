@@ -1,6 +1,6 @@
 {
   "book": "ACBr com IA na Prática",
-  "editionTag": "pilot-v0.5.0",
+  "editionTag": "pilot-v0.6.0",
   "states": ["PL", "IM", "CP", "EX", "RV"],
   "examples": [
     {
@@ -9,6 +9,34 @@
       "state": "EX",
       "evidence": ["manifest/evidence/caixa-agil-win32-2026-09-04.md", "manifest/evidence/caixa-agil-local-pilot-2026-09-05.md", "manifest/evidence/caixa-agil-pilot-2026-09-14.md"],
       "limitations": ["Compilação Win64 ainda não comprovada", "Nenhuma operação fiscal externa foi executada", "O mapeador ACBr contém somente campos técnicos; emitente e tributação dependem de perfil aprovado", "Impressão, cancelamento, inutilização e contingência permanecem apenas contextualizados no livro"]
+    },
+    {
+      "id": "payments-local-lab",
+      "chapters": [3, 9, 10],
+      "state": "EX",
+      "evidence": ["manifest/evidence/skills-six-followups-2026-09-17.md"],
+      "limitations": ["Estados inteiramente simulados", "Nenhum banco, PSP, TEF ou serviço externo foi acessado"]
+    },
+    {
+      "id": "text-local-lab",
+      "chapters": [3, 10],
+      "state": "EX",
+      "evidence": ["manifest/evidence/skills-six-followups-2026-09-17.md"],
+      "limitations": ["Leiaute didático", "Não substitui SPED, obrigação ou validador oficial"]
+    },
+    {
+      "id": "certificate-local-lab",
+      "chapters": [6, 9, 10],
+      "state": "EX",
+      "evidence": ["manifest/evidence/skills-seven-improvements-2026-09-17.md"],
+      "limitations": ["Metadados inteiramente fictícios", "Nenhum certificado ou repositório do Windows é acessado"]
+    },
+    {
+      "id": "version-update-local-lab",
+      "chapters": [10, 11],
+      "state": "EX",
+      "evidence": ["manifest/evidence/skills-seven-improvements-2026-09-17.md"],
+      "limitations": ["Símbolos sintéticos", "Nenhum checkout ACBr é atualizado"]
     }
   ],
   "skills": [
@@ -41,6 +69,108 @@
       "state": "RV",
       "evidence": ["manifest/evidence/acbr-skills-suite-2026-09-09.md", "manifest/evidence/acbr-skills-behavioral-review-2026-09-09.md", "manifest/evidence/evaluations/change-review-evaluation.md"],
       "limitations": ["A revisão continua dependente da linha de base e das evidências disponíveis em cada projeto"]
+    },
+    {
+      "id": "acbr-environment-setup",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["Os casos sintéticos não comprovam toda instalação Delphi ou revisão ACBr"]
+    },
+    {
+      "id": "acbr-version-update",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["Nenhum checkout foi atualizado durante a validação"]
+    },
+    {
+      "id": "acbr-build-troubleshooting",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["Os casos sintéticos não cobrem toda combinação de paths, packages e plataformas"]
+    },
+    {
+      "id": "acbr-runtime-diagnosis",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["Encoding foi verificado localmente; outros modos de falha são casos documentados"]
+    },
+    {
+      "id": "acbr-test-design",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["Os casos sintéticos não substituem testes de integração específicos do projeto"]
+    },
+    {
+      "id": "acbr-dfe",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["Fontes e demos foram localizados; nenhuma operação fiscal externa foi executada"]
+    },
+    {
+      "id": "acbr-payments",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["Fontes e demos foram localizados; nenhuma transação financeira foi executada"]
+    },
+    {
+      "id": "acbr-fiscal-devices",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["Nenhum equipamento real foi controlado"]
+    },
+    {
+      "id": "acbr-text-obligations",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["Nenhuma obrigação real foi gerada ou validada"]
+    },
+    {
+      "id": "acbr-printing",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["Nenhuma impressora real foi acionada"]
+    },
+    {
+      "id": "acbr-communication",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["Nenhum endpoint ou dispositivo externo foi acionado"]
+    },
+    {
+      "id": "acbr-configuration-review",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["A precedência efetiva ainda depende de cada projeto e ambiente"]
+    },
+    {
+      "id": "acbr-response-handling",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["Nenhuma resposta externa real foi processada"]
+    },
+    {
+      "id": "acbr-logging-evidence",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["A sanitização permanece sujeita a revisão humana antes de publicação"]
+    },
+    {
+      "id": "acbr-performance-review",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["Nenhum benchmark de integração externa foi executado"]
+    },
+    {
+      "id": "acbr-security-review",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["A skill não substitui auditoria profissional nem autoriza rotação de segredos"]
+    },
+    {
+      "id": "acbr-support-request",
+      "state": "RV",
+      "evidence": ["manifest/evidence/acbr-skills-expansion-2026-09-17.md"],
+      "limitations": ["Nenhum conteúdo é publicado automaticamente"]
     }
   ]
 }

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "components": [
+    {"id":"nfe-nfce","family":"acbr-dfe","sourceRoots":["Fontes/ACBrDFe/ACBrNFe"],"demoRoots":["Exemplos/ACBrDFe/ACBrNFe"],"searchTerm":"TACBrNFe"},
+    {"id":"cte","family":"acbr-dfe","sourceRoots":["Fontes/ACBrDFe/ACBrCTe"],"demoRoots":["Exemplos/ACBrDFe/ACBrCTe"],"searchTerm":"TACBrCTe"},
+    {"id":"mdfe","family":"acbr-dfe","sourceRoots":["Fontes/ACBrDFe/ACBrMDFe"],"demoRoots":["Exemplos/ACBrDFe/ACBrMDFe"],"searchTerm":"TACBrMDFe"},
+    {"id":"nfse","family":"acbr-dfe","sourceRoots":["Fontes/ACBrDFe/ACBrNFSeX","Fontes/ACBrDFe/ACBrNFSe"],"demoRoots":["Exemplos/ACBrDFe/ACBrNFSe"],"searchTerm":"TACBrNFSe"},
+    {"id":"boleto","family":"acbr-payments","sourceRoots":["Fontes/ACBrBoleto"],"demoRoots":["Exemplos/ACBrBoleto"],"searchTerm":"TACBrBoleto"},
+    {"id":"pixcd","family":"acbr-payments","sourceRoots":["Fontes/ACBrPIXCD"],"demoRoots":["Exemplos/ACBrPIXCD"],"searchTerm":"TACBrPIX"},
+    {"id":"tef","family":"acbr-payments","sourceRoots":["Fontes/ACBrTEFD"],"demoRoots":["Exemplos/ACBrTEFD"],"searchTerm":"TACBrTEFD"},
+    {"id":"sat","family":"acbr-fiscal-devices","sourceRoots":["Fontes/ACBrSAT"],"demoRoots":["Exemplos/ACBrSAT"],"searchTerm":"TACBrSAT"},
+    {"id":"sped","family":"acbr-text-obligations","sourceRoots":["Fontes/ACBrTXT/ACBrSPED"],"demoRoots":["Exemplos/ACBrTXT/ACBrSPED"],"searchTerm":"TACBrSPED"},
+    {"id":"txt","family":"acbr-text-obligations","sourceRoots":["Fontes/ACBrTXT"],"demoRoots":["Exemplos/ACBrTXT"],"searchTerm":"ACBrSintegra"},
+    {"id":"posprinter","family":"acbr-printing","sourceRoots":["Fontes/ACBrSerial"],"demoRoots":["Exemplos/ACBrSerial/ACBrPosPrinter"],"searchTerm":"TACBrPosPrinter"},
+    {"id":"serial","family":"acbr-communication","sourceRoots":["Fontes/ACBrSerial"],"demoRoots":["Exemplos/ACBrSerial"],"searchTerm":"TACBrDevice"},
+    {"id":"tcp","family":"acbr-communication","sourceRoots":["Fontes/ACBrTCP"],"demoRoots":["Exemplos/ACBrTCP"],"searchTerm":"TACBrTCPServer"}
+  ]
+}

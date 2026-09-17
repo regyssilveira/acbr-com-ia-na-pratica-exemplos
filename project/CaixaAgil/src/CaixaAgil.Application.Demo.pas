@@ -1,4 +1,4 @@
-unit CaixaAgil.Application.Demo;
+﻿unit CaixaAgil.Application.Demo;
 
 interface
 uses System.Classes;

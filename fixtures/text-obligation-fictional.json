@@ -1,0 +1,10 @@
+{
+  "layout": "LAB-TXT-1",
+  "period": "2026-01",
+  "records": [
+    {"type":"0000","parent":"","code":"BOOK-LAB","amount":0.00},
+    {"type":"C100","parent":"0000","code":"DOC-001","amount":39.80},
+    {"type":"C190","parent":"C100","code":"TOTAL-001","amount":39.80},
+    {"type":"9999","parent":"0000","code":"END","amount":39.80}
+  ]
+}

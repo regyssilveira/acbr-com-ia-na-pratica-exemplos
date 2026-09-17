@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "scope": "Delphi com componentes ACBr; exclui ACBrLib e ACBrMonitorPLUS",
+  "entries": [
+    {"id":"acbr-component-work","kind":"router","state":"RV","routes":["acbr-project-onboarding","acbr-integration-start","acbr-problem-diagnosis","acbr-change-review","acbr-environment-setup","acbr-version-update","acbr-build-troubleshooting","acbr-runtime-diagnosis","acbr-test-design","acbr-configuration-review","acbr-response-handling","acbr-logging-evidence","acbr-performance-review","acbr-security-review","acbr-support-request"]},
+    {"id":"acbr-project-onboarding","kind":"task","state":"RV"},
+    {"id":"acbr-integration-start","kind":"task","state":"RV"},
+    {"id":"acbr-problem-diagnosis","kind":"task","state":"RV"},
+    {"id":"acbr-change-review","kind":"task","state":"RV"},
+    {"id":"acbr-environment-setup","kind":"task","state":"RV"},
+    {"id":"acbr-version-update","kind":"task","state":"RV"},
+    {"id":"acbr-build-troubleshooting","kind":"task","state":"RV"},
+    {"id":"acbr-runtime-diagnosis","kind":"task","state":"RV"},
+    {"id":"acbr-test-design","kind":"task","state":"RV"},
+    {"id":"acbr-configuration-review","kind":"task","state":"RV"},
+    {"id":"acbr-response-handling","kind":"task","state":"RV"},
+    {"id":"acbr-logging-evidence","kind":"task","state":"RV"},
+    {"id":"acbr-performance-review","kind":"task","state":"RV"},
+    {"id":"acbr-security-review","kind":"task","state":"RV"},
+    {"id":"acbr-support-request","kind":"task","state":"RV"},
+    {"id":"acbr-dfe","kind":"family","state":"RV","components":["nfe-nfce","cte","mdfe","nfse"]},
+    {"id":"acbr-payments","kind":"family","state":"RV","components":["boleto","pixcd","tef"]},
+    {"id":"acbr-fiscal-devices","kind":"family","state":"RV","components":["sat"]},
+    {"id":"acbr-text-obligations","kind":"family","state":"RV","components":["sped","txt"]},
+    {"id":"acbr-printing","kind":"family","state":"RV","components":["posprinter"]},
+    {"id":"acbr-communication","kind":"family","state":"RV","components":["serial","tcp"]}
+  ]
+}

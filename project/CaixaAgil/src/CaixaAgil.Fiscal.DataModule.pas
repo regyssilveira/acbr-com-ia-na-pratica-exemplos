@@ -1,4 +1,4 @@
-unit CaixaAgil.Fiscal.DataModule;
+﻿unit CaixaAgil.Fiscal.DataModule;
 
 interface
 

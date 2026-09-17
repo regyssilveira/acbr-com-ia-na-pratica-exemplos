@@ -1,0 +1,8 @@
+{
+  "scenarios": [
+    {"id":"PIX-LOCAL-001","kind":"pix","initial":"created","event":"timeout_after_submit","expected":"uncertain","queryResult":"confirmed","retryAllowed":false},
+    {"id":"PIX-LOCAL-002","kind":"pix","initial":"created","event":"provider_rejected","expected":"rejected","retryAllowed":true},
+    {"id":"BOL-LOCAL-001","kind":"boleto","initial":"draft","event":"document_generated","expected":"generated_not_registered","retryAllowed":false},
+    {"id":"BOL-LOCAL-002","kind":"boleto","initial":"generated_not_registered","event":"bank_registration_confirmed","expected":"registered","retryAllowed":false}
+  ]
+}

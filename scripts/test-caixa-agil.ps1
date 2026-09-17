@@ -1,4 +1,4 @@
-param(
+﻿param(
     [string]$RadStudioRoot = 'C:\Program Files (x86)\Embarcadero\Studio\37.0',
     [string]$AcbrLibrary = 'D:\Delphi\ACBr\Lib\Delphi\LibD37\Win32'
 )

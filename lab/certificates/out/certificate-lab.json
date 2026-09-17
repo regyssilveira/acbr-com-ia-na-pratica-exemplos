@@ -1,0 +1,26 @@
+[
+  {
+    "name": "válido-em-homologação",
+    "expected": "ready",
+    "actual": "ready",
+    "passed": true
+  },
+  {
+    "name": "sem-chave-privada",
+    "expected": "blocked",
+    "actual": "blocked",
+    "passed": true
+  },
+  {
+    "name": "expirado",
+    "expected": "blocked",
+    "actual": "blocked",
+    "passed": true
+  },
+  {
+    "name": "produção-não-autorizada",
+    "expected": "manual-approval",
+    "actual": "manual-approval",
+    "passed": true
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "symbol": "TACBrNFe",
+    "status": "unchanged"
+  },
+  {
+    "symbol": "ModeloDF",
+    "status": "unchanged"
+  },
+  {
+    "symbol": "LegacyFlag",
+    "status": "removed"
+  },
+  {
+    "symbol": "NewFlag",
+    "status": "added"
+  }
+]

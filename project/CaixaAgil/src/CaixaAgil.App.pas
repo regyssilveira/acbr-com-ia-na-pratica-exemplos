@@ -1,4 +1,4 @@
-unit CaixaAgil.App;
+﻿unit CaixaAgil.App;
 
 interface
 

@@ -4,7 +4,7 @@ Repositório público dos exemplos do livro **ACBr com IA na Prática: Inteligê
 
 > Estado: piloto executável. O manifesto registra build Win32, testes DUnitX e execução local simulada. Nenhuma operação fiscal externa foi realizada.
 
-Versão correspondente à edição candidata do livro: `pilot-v0.5.0`.
+Versão correspondente à edição candidata do livro: `pilot-v0.6.0`.
 
 ## Escopo
 
@@ -51,16 +51,15 @@ O comando faz um pré-voo da instalação, compila a aplicação, executa dez te
 
 ## Skills ACBr
 
-A suíte começa por `skills/acbr-component-work`, que faz a triagem geral e oferece scripts somente leitura. Quatro skills especializadas cobrem tarefas recorrentes:
+A suíte começa por `skills/acbr-component-work`, que faz a triagem geral. O catálogo reúne skills para conhecer projetos, iniciar integrações, ambiente, atualização, build, execução, testes, configuração, respostas, evidências, desempenho, segurança, suporte e revisão. Famílias complementares cobrem DF-e, pagamentos, SAT, SPED/TXT, impressão e comunicação.
 
-- `acbr-project-onboarding`: compreender um projeto existente;
-- `acbr-integration-start`: iniciar ou ampliar uma integração;
-- `acbr-problem-diagnosis`: investigar falhas e rejeições;
-- `acbr-change-review`: revisar alterações antes da aceitação.
+Cada skill declara limites de segurança e casos de avaliação próprios. Consulte as [receitas de uso diário](skills/recipes.md) para começar por um problema concreto. Execute `scripts/validate-all.ps1` para validar estrutura, catálogo, codificação e correspondência das referências com fontes e demos do checkout ACBr, além dos gates do Caixa Ágil.
 
-Cada skill declara limites de segurança e casos de avaliação próprios. Execute `scripts/validate-skills.ps1` para validar a estrutura e as referências da coleção. Consulte o laboratório correspondente no livro antes de adaptá-las ao seu ambiente.
+As [ferramentas locais](docs/skill-tools.md) incluem sanitização assistida de logs, comparação de símbolos entre revisões, inventário de paths/DCUs e laboratórios fictícios de pagamentos e TXT. Todas operam sem comunicação externa; leia os limites antes de interpretar o resultado.
 
-Veja a [árvore de decisão e as instruções de adoção](skills/README.md). As skills usam diretamente o formato do Codex; referências, scripts e avaliações podem ser adaptados a outros agentes conforme a [matriz de compatibilidade](skills/compatibility.md), sem presumir descoberta automática.
+Para descobrir por onde começar, execute `scripts/find-skill.ps1`. O instalador `scripts/install-skills.ps1` trabalha em modo de simulação por padrão. O `scripts/acbr-doctor.ps1` produz um diagnóstico somente de leitura, e `scripts/new-support-bundle.ps1` reúne evidências sanitizadas para revisão antes do compartilhamento.
+
+Veja a [árvore de decisão e as instruções de adoção](skills/README.md). O estado de cada pacote está em [catalog.json](skills/catalog.json); itens `IM` ainda não passaram por avaliação comportamental independente. As skills usam diretamente o formato do Codex; referências, scripts e avaliações podem ser adaptados a outros agentes conforme a [matriz de compatibilidade](skills/compatibility.md), sem presumir descoberta automática.
 
 ## Licença
 

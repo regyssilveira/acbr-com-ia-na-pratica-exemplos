@@ -1,4 +1,4 @@
-unit CaixaAgil.Domain.Sale;
+﻿unit CaixaAgil.Domain.Sale;
 
 interface
 

@@ -1,4 +1,4 @@
-unit CaixaAgil.Fiscal.Mapper;
+﻿unit CaixaAgil.Fiscal.Mapper;
 
 interface
 

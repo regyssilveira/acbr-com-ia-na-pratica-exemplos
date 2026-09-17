@@ -1,7 +1,7 @@
-$ErrorActionPreference = 'Stop'
+﻿$ErrorActionPreference = 'Stop'
 $repository = Resolve-Path (Join-Path $PSScriptRoot '..')
 $forbiddenExtensions = @('.pfx', '.p12', '.pem', '.key', '.cer', '.crt', '.xml', '.sqlite', '.db')
-$tracked = git -C $repository ls-files
+$tracked = git -C $repository ls-files --cached --others --exclude-standard
 
 $badFiles = $tracked | Where-Object {
     $extension = [System.IO.Path]::GetExtension($_).ToLowerInvariant()

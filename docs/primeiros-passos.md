@@ -19,7 +19,7 @@ Se os caminhos diferirem em sua máquina, passe-os ao gate agregado (não edite 
   -AcbrLibrary 'D:\Delphi\ACBr\Lib\Delphi\LibD37\Win32'
 ```
 
-O pré-voo deve listar compilador, `ACBrNFe.dcu` e DUnitX. Depois, espere build Win32, dez testes DUnitX aprovados, os resultados locais `autorizado`, `rejeitado` e `resultado_incerto`, verificação de segredos e cinco skills válidas. `autorizado` é apenas o nome de um estado simulado; não há XML fiscal, protocolo real, impressão ou acesso à SEFAZ.
+O pré-voo deve listar compilador, `ACBrNFe.dcu` e DUnitX. Depois, espere build Win32, dez testes DUnitX aprovados, os resultados locais `autorizado`, `rejeitado` e `resultado_incerto`, verificação de segredos, catálogo consistente, codificação válida e a quantidade de skills informada pelo gate. A validação de cobertura também deve localizar fontes, demos e símbolos de entrada no checkout ACBr derivado do caminho da biblioteca. `autorizado` é apenas o nome de um estado simulado; não há XML fiscal, protocolo real, impressão ou acesso à SEFAZ.
 
 O gate recria `lab/output/caixa-agil.sqlite`. Preserve uma cópia fora da pasta de saída se precisar manter uma execução anterior. Ao falhar, registre a primeira mensagem exata, compilador, plataforma, revisão ACBr e caminhos usados; não atualize o ACBr ou altere código antes de classificar a falha.
 
