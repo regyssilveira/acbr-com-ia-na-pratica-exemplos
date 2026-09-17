@@ -34,7 +34,7 @@ Instale somente a pasta da skill necessária. Use a entrada geral quando a taref
 | dispositivos fiscais | `acbr-fiscal-devices`: SAT |
 | obrigações e arquivos textuais | `acbr-text-obligations`: SPED e TXT |
 | impressão | `acbr-printing`: PosPrinter e apoio a relatórios |
-| comunicação | `acbr-communication`: Serial e TCP |
+| comunicação e serviços auxiliares | `acbr-communication`: Serial, TCP, CEP, e-mail e balança |
 
 Combine uma skill de tarefa com uma família. Exemplo: para investigar timeout do PIX, use o procedimento de `acbr-runtime-diagnosis` e a referência PIXCD de `acbr-payments`. O arquivo [catalog.json](catalog.json) é o inventário legível por máquina e registra o estado de cada pacote.
 
@@ -49,9 +49,12 @@ O instalador assistido mostra as ações sem alterar nada por padrão:
 ```powershell
 .\scripts\install-skills.ps1 -Skill 'acbr-dfe'
 .\scripts\install-skills.ps1 -Skill 'acbr-dfe' -Apply
+.\scripts\install-skills.ps1 -Profile dfe
+.\scripts\install-skills.ps1 -Profile dfe -Apply
 ```
 
 Antes de usar `-Apply`, confira o destino exibido. Uma pasta existente recebe uma cópia de segurança datada.
+Os perfis disponíveis são `core`, `dfe`, `payments`, `devices` e `full`. Use `-CheckUpdates` para comparar a instalação com esta origem sem copiar arquivos.
 
 O procedimento não depende de um modelo específico. Outras ferramentas podem reutilizar as instruções, referências, scripts e casos de avaliação, mas a descoberta automática de `SKILL.md` deve ser considerada não verificada até ser confirmada na documentação da ferramenta.
 

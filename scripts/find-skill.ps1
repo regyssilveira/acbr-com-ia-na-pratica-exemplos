@@ -29,7 +29,7 @@ $aliases = @{
     'acbr-fiscal-devices' = 'sat equipamento fiscal ativação sessão'
     'acbr-text-obligations' = 'sped sintegra txt obrigação registro bloco'
     'acbr-printing' = 'posprinter imprimir impressão escpos bobina'
-    'acbr-communication' = 'serial tcp porta comunicação dispositivo conexão'
+    'acbr-communication' = 'serial tcp porta comunicação dispositivo conexão cep endereço email e-mail smtp balança peso'
 }
 
 $terms = @($Query.ToLowerInvariant() -split '[^\p{L}\p{Nd}]+' | Where-Object Length -ge 3 | Sort-Object -Unique)

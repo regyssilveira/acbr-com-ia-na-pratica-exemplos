@@ -62,7 +62,41 @@ try {
     & (Join-Path $PSScriptRoot 'new-support-bundle.ps1') -OutputDirectory $bundle -ProjectFile $project -LogPath $log
     if (-not (Test-Path -LiteralPath (Join-Path $bundle 'pedido-de-suporte.md'))) { throw 'Pacote de suporte incompleto.' }
 
-    Write-Host 'OK: ferramentas de sanitização, comparação, paths, descoberta, instalação, doctor e suporte validadas.'
+    # PAS/DFM: par sintético coerente não deve produzir pendências.
+    $pairPas = Join-Path $tempRoot 'Pair.pas'
+    $pairDfm = Join-Path $tempRoot 'Pair.dfm'
+    [IO.File]::WriteAllText($pairPas, "unit Pair;`ntype TForm1 = class(TForm)`n  Button1: TButton;`n  procedure Button1Click(Sender: TObject);`nend;`nprocedure TForm1.Button1Click(Sender: TObject); begin end;`nend.", [Text.UTF8Encoding]::new($false))
+    [IO.File]::WriteAllText($pairDfm, "object Form1: TForm1`n  object Button1: TButton`n    OnClick = Button1Click`n  end`nend", [Text.UTF8Encoding]::new($false))
+    $pairReport = Join-Path $tempRoot 'pair.json'
+    & (Join-Path $PSScriptRoot 'check-pas-dfm.ps1') -PasFile $pairPas -DfmFile $pairDfm -OutputPath $pairReport
+    $pair = Get-Content -Raw $pairReport | ConvertFrom-Json
+    if (@($pair.missingEventHandlers).Count -or @($pair.missingComponentFields).Count) { throw 'Verificador PAS/DFM rejeitou par coerente.' }
+
+    # Build: preserva primeiro erro e contagem de warnings.
+    $buildLog = Join-Path $tempRoot 'build.log'
+    [IO.File]::WriteAllText($buildLog, "Demo.pas(1) Warning: W1000 aviso`nDemo.pas(2) Error: E2003 Undeclared identifier", [Text.UTF8Encoding]::new($false))
+    $buildReport = Join-Path $tempRoot 'build.json'
+    & (Join-Path $PSScriptRoot 'summarize-delphi-build.ps1') -InputPath $buildLog -OutputPath $buildReport
+    $build = Get-Content -Raw $buildReport | ConvertFrom-Json
+    if ($build.errorCount -ne 1 -or $build.warningCount -ne 1) { throw 'Resumo de build perdeu erros ou warnings.' }
+
+    # Kit de contexto e fluxo guiado permanecem somente leitura até Apply.
+    $fakeAcbr = Join-Path $tempRoot 'ACBr'
+    New-Item -ItemType Directory -Path (Join-Path $fakeAcbr 'Fontes') | Out-Null
+    $contextDir = Join-Path $tempRoot 'context'
+    & (Join-Path $PSScriptRoot 'new-acbr-project-context.ps1') -ProjectFile $project -AcbrRoot $fakeAcbr -OutputDirectory $contextDir
+    if (Test-Path -LiteralPath $contextDir) { throw 'Simulação do kit de contexto alterou o destino.' }
+    & (Join-Path $PSScriptRoot 'new-acbr-project-context.ps1') -ProjectFile $project -AcbrRoot $fakeAcbr -OutputDirectory $contextDir -Apply
+    if (-not (Test-Path -LiteralPath (Join-Path $contextDir 'AGENTS.md'))) { throw 'Kit de contexto incompleto.' }
+    $workflow = (& (Join-Path $PSScriptRoot 'start-guided-workflow.ps1') -Workflow incident -Family dfe | Out-String | ConvertFrom-Json)
+    if ($workflow.taskSkill -ne 'acbr-problem-diagnosis' -or $workflow.familySkill -ne 'acbr-dfe') { throw 'Fluxo guiado roteou incorretamente.' }
+
+    # Perfil instala somente o conjunto selecionado.
+    $profileRoot = Join-Path $tempRoot 'profile'
+    & (Join-Path $PSScriptRoot 'install-skills.ps1') -Destination $profileRoot -Profile payments -Apply
+    if (-not (Test-Path (Join-Path $profileRoot 'acbr-payments\SKILL.md')) -or (Test-Path (Join-Path $profileRoot 'acbr-dfe'))) { throw 'Perfil de instalação incorreto.' }
+
+    Write-Host 'OK: ferramentas de contexto, PAS/DFM, build, fluxos, perfis, sanitização, comparação, paths, doctor e suporte validadas.'
 }
 finally {
     if (Test-Path -LiteralPath $tempRoot) { Remove-Item -LiteralPath $tempRoot -Recurse -Force }

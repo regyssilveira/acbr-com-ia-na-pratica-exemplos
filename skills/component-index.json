@@ -13,6 +13,9 @@
     {"id":"txt","family":"acbr-text-obligations","sourceRoots":["Fontes/ACBrTXT"],"demoRoots":["Exemplos/ACBrTXT"],"searchTerm":"ACBrSintegra"},
     {"id":"posprinter","family":"acbr-printing","sourceRoots":["Fontes/ACBrSerial"],"demoRoots":["Exemplos/ACBrSerial/ACBrPosPrinter"],"searchTerm":"TACBrPosPrinter"},
     {"id":"serial","family":"acbr-communication","sourceRoots":["Fontes/ACBrSerial"],"demoRoots":["Exemplos/ACBrSerial"],"searchTerm":"TACBrDevice"},
-    {"id":"tcp","family":"acbr-communication","sourceRoots":["Fontes/ACBrTCP"],"demoRoots":["Exemplos/ACBrTCP"],"searchTerm":"TACBrTCPServer"}
+    {"id":"tcp","family":"acbr-communication","sourceRoots":["Fontes/ACBrTCP"],"demoRoots":["Exemplos/ACBrTCP"],"searchTerm":"TACBrTCPServer"},
+    {"id":"cep","family":"acbr-communication","sourceRoots":["Fontes/ACBrTCP"],"demoRoots":["Exemplos/ACBrTCP/ACBrCEP"],"searchTerm":"TACBrCEP"},
+    {"id":"mail","family":"acbr-communication","sourceRoots":["Fontes/ACBrTCP"],"demoRoots":["Exemplos/ACBrTCP/ACBrMail"],"searchTerm":"TACBrMail"},
+    {"id":"balanca","family":"acbr-communication","sourceRoots":["Fontes/ACBrSerial"],"demoRoots":["Exemplos/ACBrSerial/ACBrBAL"],"searchTerm":"TACBrBAL"}
   ]
 }

@@ -73,3 +73,51 @@ Estas receitas combinam uma tarefa e uma família. Substitua os campos entre col
 > Use `acbr-problem-diagnosis`. Converta `[notas e logs sanitizados]` em um relato de até oito linhas com ambiente, revisão, componente, objetivo, resultado, primeiro erro, tentativas e pergunta objetiva. Aponte o que ainda falta; não publique nem inclua segredo.
 
 **Espere receber:** relato reproduzível e seguro, pronto para revisão humana.
+
+## Diagnosticar certificado ou provider SSL
+
+> Use `acbr-configuration-review` e `acbr-runtime-diagnosis`. Ambiente `[homologação]`, Delphi `[versão/plataforma]`, ACBr `[revisão]`, provider SSL `[nome]` e erro sanitizado `[mensagem]`. Confira carregamento, validade, chave privada, cadeia, biblioteca e configuração sem abrir nem copiar o certificado. Comece pelo laboratório fictício e não transmita documento.
+
+**Espere receber:** camada provável, evidência que falta e teste local que não expõe segredo.
+
+## Investigar NFSe por município e provider
+
+> Use `acbr-problem-diagnosis` com `acbr-dfe`, referência `nfse`. Município `[IBGE]`, provider `[confirmado ou não verificado]`, ambiente `[homologação]`, operação `[gerar/enviar/consultar]` e primeiro retorno sanitizado `[mensagem]`. Localize configuração e demo na revisão; não presuma que outro município possui o mesmo fluxo.
+
+**Espere receber:** identificação do provider, etapa que falhou e diferenças que precisam ser verificadas.
+
+## Diagnosticar DANFE ou relatório
+
+> Use `acbr-runtime-diagnosis` com `acbr-printing`. Documento fictício `[tipo]`, engine `[Fortes/FastReport/FPDF/outra]`, destino `[preview/PDF/impressora]` e fato observado `[descrição]`. Separe dados do documento, montagem do relatório, fonte, margem, spool e dispositivo. Não use XML real.
+
+**Espere receber:** primeira camada divergente e reprodução visual mínima.
+
+## Planejar contingência
+
+> Use `acbr-response-handling` com `acbr-dfe`. Documento `[tipo]`, modo normal `[estado]`, contingência pretendida `[modo]` e evidência `[retorno/indisponibilidade]`. Mapeie pré-condições, estados persistidos, reconciliação e critérios de saída; marque decisões fiscais e operacionais que precisam de aprovação. Não ative contingência nem transmita.
+
+**Espere receber:** máquina de estados e checklist de autorização, sem decisão fiscal automática.
+
+## Componente no DFM, mas ausente no build
+
+> Use `acbr-build-troubleshooting`. Analise o par `[PAS/DFM]`, o primeiro erro do build e os paths efetivos. Execute `check-pas-dfm.ps1` em modo somente leitura e confira classe registrada, package e DCU da plataforma. Não remova o objeto do DFM para silenciar o erro.
+
+**Espere receber:** divergência comprovada entre persistência, declaração ou package.
+
+## IDE compila, linha de comando não
+
+> Use `acbr-environment-setup` e `acbr-build-troubleshooting`. Compare configuração, plataforma, macros e paths da IDE com o comando `[comando]`. Resuma os dois logs com `summarize-delphi-build.ps1` e identifique a primeira diferença de ambiente, sem copiar DCUs.
+
+**Espere receber:** variável ou path divergente e comando mínimo de confirmação.
+
+## Consultar CEP sem confundir retorno com cadastro
+
+> Use `acbr-integration-start` com `acbr-communication`, referência `cep`. Provider `[nome]`, entrada `[fictícia]` e revisão `[ACBr]`. Modele timeout, ausência, múltiplos resultados e normalização; não grave automaticamente o retorno como endereço confirmado.
+
+**Espere receber:** contrato de entrada/saída, tratamento dos estados e primeiro teste local.
+
+## Diagnosticar e-mail ou balança
+
+> Use `acbr-runtime-diagnosis` com `acbr-communication`, referência `[mail/balanca]`. Para e-mail, informe etapa SMTP/TLS e erro sem credencial; para balança, modelo, porta, parâmetros e bytes fictícios/sanitizados. Isole transporte, protocolo e regra sem acionar destinatário ou equipamento de produção.
+
+**Espere receber:** camada que falhou, evidência mínima e teste seguro em laboratório.

@@ -23,6 +23,6 @@
     {"id":"acbr-fiscal-devices","kind":"family","state":"RV","components":["sat"]},
     {"id":"acbr-text-obligations","kind":"family","state":"RV","components":["sped","txt"]},
     {"id":"acbr-printing","kind":"family","state":"RV","components":["posprinter"]},
-    {"id":"acbr-communication","kind":"family","state":"RV","components":["serial","tcp"]}
+    {"id":"acbr-communication","kind":"family","state":"RV","components":["serial","tcp","cep","mail","balanca"]}
   ]
 }

@@ -9,6 +9,10 @@
 - `run-version-update-lab.ps1`: demonstra uma análise sintética de símbolos mantidos, removidos e adicionados.
 - `find-skill.ps1`: sugere skills a partir da descrição cotidiana de um problema.
 - `install-skills.ps1`: simula instalação/atualização por padrão e cria backup quando executado com `-Apply`.
+- `new-acbr-project-context.ps1`: gera, após simulação, `AGENTS.md`, inventário e manifesto de contexto para um projeto.
+- `start-guided-workflow.ps1`: combina tarefa, família, ferramentas e receita para cinco jornadas comuns.
+- `check-pas-dfm.ps1`: confere eventos e campos persistidos de um par PAS/DFM sem regravá-lo.
+- `summarize-delphi-build.ps1`: extrai primeiro erro, contagens, warnings e units mencionadas de um log.
 - `acbr-doctor.ps1`: reúne diagnóstico somente de leitura do projeto e da árvore ACBr informada.
 - `new-support-bundle.ps1`: cria pacote local com diagnóstico, logs sanitizados e roteiro de suporte.
 - `check-public-sync.ps1`: confirma que a tag e o catálogo esperado já estão públicos no GitHub.

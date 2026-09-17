@@ -43,7 +43,7 @@ As skills `acbr-runtime-diagnosis` e `acbr-build-troubleshooting` devem compleme
 | P0 | `acbr-fiscal-devices` | RV | SAT | comunicação com hardware, sessão, ativação, códigos de retorno e ambiente físico |
 | P1 | `acbr-text-obligations` | RV | SPED, Sintegra e demais geradores TXT aplicáveis | registros hierárquicos, validação estrutural, competência e grande volume de dados |
 | P1 | `acbr-printing` | RV | PosPrinter e relatórios DFe | dispositivo, code page, comandos, spool, PDF e vínculo com documento |
-| P1 | `acbr-communication` | RV | Serial e TCP | portas, protocolo, timeout, encoding e recursos externos |
+| P1 | `acbr-communication` | RV | Serial, TCP, CEP, e-mail e balança | portas, protocolo, timeout, encoding, serviços e equipamentos externos |
 | P2 | `acbr-commerce-integrations` | PL | OpenDelivery, Integrador e integrações comerciais presentes na revisão | contratos externos, autenticação, disponibilidade e evolução de APIs |
 | P2 | `acbr-baas` | PL | componentes BaaS presentes na revisão | dependência de serviço, credenciais e diferenças em relação ao componente local |
 
@@ -58,7 +58,7 @@ Cada família deve carregar apenas a referência necessária à tarefa. O primei
 - `fiscal-devices/sat.md`;
 - `text-obligations/sped.md`, `text-obligations/txt.md`;
 - `printing/posprinter.md`;
-- `communication/serial.md`, `communication/tcp.md`.
+- `communication/serial.md`, `communication/tcp.md`, `communication/cep.md`, `communication/mail.md`, `communication/balanca.md`.
 
 Uma referência de componente deve conter somente informação que muda decisões:
 

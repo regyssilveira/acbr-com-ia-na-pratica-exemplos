@@ -8,6 +8,7 @@ $manifest = Get-Content -Raw -LiteralPath (Join-Path $root 'manifest\examples.js
 $validKinds = @('router', 'task', 'family')
 $validStates = @('PL', 'IM', 'CP', 'EX', 'RV')
 $ids = @($catalog.entries | ForEach-Object { $_.id })
+$profiles = Get-Content -Raw -LiteralPath (Join-Path $skillsRoot 'profiles.json') | ConvertFrom-Json
 
 if ($catalog.schemaVersion -ne 1) { throw 'Versão de schema do catálogo não suportada.' }
 if ($ids.Count -ne @($ids | Sort-Object -Unique).Count) { throw 'Há IDs duplicados no catálogo de skills.' }
@@ -32,6 +33,14 @@ foreach ($entry in $catalog.entries) {
                 throw "Referência de componente ausente em $($entry.id): $component.md"
             }
         }
+    }
+}
+
+foreach ($profileName in @('core','dfe','payments','devices','full')) {
+    $items = @($profiles.profiles.$profileName)
+    if ($items.Count -eq 0) { throw "Perfil vazio ou ausente: $profileName" }
+    foreach ($item in $items) {
+        if ($item -ne '*' -and $item -ne '@core' -and $item -notin $ids) { throw "Skill inexistente no perfil ${profileName}: $item" }
     }
 }
 

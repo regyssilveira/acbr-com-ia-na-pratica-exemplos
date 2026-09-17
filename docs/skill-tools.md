@@ -58,9 +58,29 @@ O teste usa uma pasta temporária, verifica preservação do log original, remo�
 .\scripts\find-skill.ps1 -Query 'NFe rejeitada depois de atualizar o ACBr'
 .\scripts\install-skills.ps1 -Skill 'acbr-problem-diagnosis'
 .\scripts\install-skills.ps1 -Skill 'acbr-problem-diagnosis' -Apply
+.\scripts\install-skills.ps1 -Profile dfe -CheckUpdates
 ```
 
 O localizador pontua termos do problema e sempre oferece o roteador geral quando não encontra correspondência. O instalador apenas simula, a menos que `-Apply` seja informado, e cria backup datado antes de atualizar uma pasta existente.
+
+## Preparar o contexto e escolher um fluxo
+
+```powershell
+.\scripts\new-acbr-project-context.ps1 -ProjectFile '.\Sistema.dproj' -AcbrRoot 'D:\ACBr'
+.\scripts\new-acbr-project-context.ps1 -ProjectFile '.\Sistema.dproj' -AcbrRoot 'D:\ACBr' -Apply
+.\scripts\start-guided-workflow.ps1 -Workflow incident -Family dfe
+```
+
+O primeiro comando simula a criação de um kit com `AGENTS.md`, `baseline.json` e `context.json`. O segundo cria o rascunho em pasta nova; os campos marcados ainda exigem revisão. O fluxo guiado apenas recomenda a combinação de skill, família, ferramenta e receita.
+
+## Conferir PAS/DFM e resumir build
+
+```powershell
+.\scripts\check-pas-dfm.ps1 -PasFile '.\Form.pas' -DfmFile '.\Form.dfm' -OutputPath '.\saida\pas-dfm.json'
+.\scripts\summarize-delphi-build.ps1 -InputPath '.\build.log' -OutputPath '.\saida\build.json'
+```
+
+Os dois scripts são somente leitura. O primeiro procura eventos do DFM sem método correspondente e componentes persistidos sem campo compatível; o segundo não diagnostica a causa, apenas preserva o primeiro erro e os warnings para investigação.
 
 ## Diagnóstico e pacote de suporte
 

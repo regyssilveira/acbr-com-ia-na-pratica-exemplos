@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "profiles": {
+    "core": ["acbr-component-work", "acbr-project-onboarding", "acbr-integration-start", "acbr-problem-diagnosis", "acbr-change-review", "acbr-environment-setup", "acbr-version-update", "acbr-build-troubleshooting", "acbr-runtime-diagnosis", "acbr-test-design", "acbr-configuration-review", "acbr-response-handling", "acbr-logging-evidence", "acbr-security-review", "acbr-support-request"],
+    "dfe": ["@core", "acbr-dfe", "acbr-printing"],
+    "payments": ["@core", "acbr-payments"],
+    "devices": ["@core", "acbr-fiscal-devices", "acbr-printing", "acbr-communication"],
+    "full": ["*"]
+  }
+}
