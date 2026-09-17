@@ -1,5 +1,10 @@
 # Scripts
 
+- `acbr-ai.ps1`: entrada única para começar, diagnosticar, avaliar prontidão, preparar atualização ou suporte.
+- `new-diagnostic-prompt.ps1`: transforma diagnóstico local em prompt preenchido sem incorporar segredos.
+- `export-doctor-html.ps1`: gera uma visualização HTML local do relatório do Doctor.
+- `test-acbr-readiness.ps1`: classifica evidências como confirmadas, ausentes, não verificadas ou dependentes de autorização/ambiente.
+
 - `build-caixa-agil.ps1`: compila a aplicação VCL Win32 contra os DCUs ACBr registrados.
 - `test-caixa-agil.ps1`: compila e executa a suíte DUnitX.
 - `run-local-lab.ps1`: executa autorização, rejeição e timeout simulados e persiste em SQLite.
@@ -7,6 +12,7 @@
 - `run-text-lab.ps1`: gera e valida um leiaute TXT didático com hierarquia, totalização e UTF-8.
 - `run-certificate-lab.ps1`: valida quatro cenários fictícios de certificado e ambiente sem acessar certificados reais.
 - `run-version-update-lab.ps1`: demonstra uma análise sintética de símbolos mantidos, removidos e adicionados.
+- `run-diagnostics-lab.ps1`: ensina a detectar divergências PAS/DFM, primeiro erro e warnings de obsolescência.
 - `find-skill.ps1`: sugere skills a partir da descrição cotidiana de um problema.
 - `install-skills.ps1`: simula instalação/atualização por padrão e cria backup quando executado com `-Apply`.
 - `new-acbr-project-context.ps1`: gera, após simulação, `AGENTS.md`, inventário e manifesto de contexto para um projeto.

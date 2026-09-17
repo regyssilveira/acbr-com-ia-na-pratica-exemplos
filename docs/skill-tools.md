@@ -2,6 +2,16 @@
 
 Todas as ferramentas abaixo operam somente nos arquivos informados. Elas não atualizam o ACBr, não alteram a IDE e não acessam serviços externos.
 
+## Entrada única
+
+```powershell
+.\scripts\acbr-ai.ps1 start -Family dfe
+.\scripts\acbr-ai.ps1 diagnose -ProjectFile '.\Sistema.dproj' -AcbrRoot 'D:\ACBr' -Problem 'erro observado' -Family dfe -OutputDirectory '.\saida\diagnostico-001'
+.\scripts\acbr-ai.ps1 ready -ProjectFile '.\Sistema.dproj' -AcbrRoot 'D:\ACBr' -Family dfe -OutputDirectory '.\saida\prontidao-001'
+```
+
+`diagnose` gera JSON, prompt preenchido e relatório HTML local. `ready` separa confirmado, ausente, não verificado e dependências de autorização ou ambiente externo. A pasta deve ser nova para preservar coletas anteriores.
+
 ## Sanitizar uma cópia de log
 
 ```powershell
@@ -96,6 +106,8 @@ O Doctor é somente leitura: inventaria o projeto, paths, DCUs e a árvore ACBr 
 ```powershell
 .\scripts\run-certificate-lab.ps1
 .\scripts\run-version-update-lab.ps1
+.\scripts\run-diagnostics-lab.ps1
 ```
 
 O primeiro usa apenas metadados fictícios e não acessa o repositório de certificados. O segundo compara símbolos sintéticos para ensinar a distinguir itens mantidos, removidos e adicionados; ele não atualiza nenhum checkout.
+O laboratório de diagnóstico contém um PAS/DFM propositalmente divergente e um log fictício com warnings. A trilha de migração ensina a localizar a API atual na revisão instalada, sem apresentar substituição universal.

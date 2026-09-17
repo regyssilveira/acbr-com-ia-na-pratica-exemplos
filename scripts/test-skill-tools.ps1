@@ -91,6 +91,17 @@ try {
     $workflow = (& (Join-Path $PSScriptRoot 'start-guided-workflow.ps1') -Workflow incident -Family dfe | Out-String | ConvertFrom-Json)
     if ($workflow.taskSkill -ne 'acbr-problem-diagnosis' -or $workflow.familySkill -ne 'acbr-dfe') { throw 'Fluxo guiado roteou incorretamente.' }
 
+    # Entrada única: gera diagnóstico versionado, prompt, HTML e prontidão em pastas novas.
+    $unified = Join-Path $tempRoot 'unified'
+    & (Join-Path $PSScriptRoot 'acbr-ai.ps1') diagnose -ProjectFile $project -AcbrRoot $fakeAcbr -Problem 'erro fictício' -Family dfe -OutputDirectory $unified
+    foreach ($name in @('diagnostico.json','prompt.md','relatorio.html')) { if (-not (Test-Path (Join-Path $unified $name))) { throw "Saída unificada ausente: $name" } }
+    $unifiedDiagnosis = Get-Content -Raw (Join-Path $unified 'diagnostico.json') | ConvertFrom-Json
+    if ($unifiedDiagnosis.schemaVersion -ne 2 -or -not $unifiedDiagnosis.validUntil) { throw 'Metadados de validade ausentes no diagnóstico.' }
+    $readyDir = Join-Path $tempRoot 'ready'
+    & (Join-Path $PSScriptRoot 'acbr-ai.ps1') ready -ProjectFile $project -AcbrRoot $fakeAcbr -Family dfe -OutputDirectory $readyDir
+    $ready = Get-Content -Raw (Join-Path $readyDir 'prontidao.json') | ConvertFrom-Json
+    if (@($ready.checks | Where-Object status -eq 'exige autorização').Count -ne 1) { throw 'Prontidão não preservou autorização externa.' }
+
     # Perfil instala somente o conjunto selecionado.
     $profileRoot = Join-Path $tempRoot 'profile'
     & (Join-Path $PSScriptRoot 'install-skills.ps1') -Destination $profileRoot -Profile payments -Apply

@@ -4,7 +4,7 @@ Repositório público dos exemplos do livro **ACBr com IA na Prática: Inteligê
 
 > Estado: piloto executável. O manifesto registra build Win32, testes DUnitX e execução local simulada. Nenhuma operação fiscal externa foi realizada.
 
-Versão correspondente à edição candidata do livro: `pilot-v0.7.0`.
+Versão correspondente à edição candidata do livro: `pilot-v0.8.0`.
 
 ## Escopo
 
@@ -57,7 +57,7 @@ Cada skill declara limites de segurança e casos de avaliação próprios. Consu
 
 As [ferramentas locais](docs/skill-tools.md) incluem sanitização assistida de logs, comparação de símbolos entre revisões, inventário de paths/DCUs e laboratórios fictícios de pagamentos e TXT. Todas operam sem comunicação externa; leia os limites antes de interpretar o resultado.
 
-Para descobrir por onde começar, execute `scripts/find-skill.ps1` ou escolha um dos cinco fluxos de `scripts/start-guided-workflow.ps1`. O instalador `scripts/install-skills.ps1` aceita perfis e trabalha em modo de simulação por padrão. `scripts/new-acbr-project-context.ps1` prepara um rascunho de contexto persistente; `scripts/acbr-doctor.ps1` produz diagnóstico somente de leitura; e `scripts/new-support-bundle.ps1` reúne evidências sanitizadas para revisão antes do compartilhamento.
+Para começar por uma única entrada, execute `scripts/acbr-ai.ps1 start`. Os modos `diagnose` e `ready` geram diagnóstico versionado, prompt preenchido, relatório HTML local e uma classificação de prontidão. O instalador `scripts/install-skills.ps1` aceita perfis e trabalha em modo de simulação por padrão. `scripts/new-acbr-project-context.ps1` prepara um rascunho de contexto persistente; e `scripts/new-support-bundle.ps1` reúne evidências sanitizadas para revisão antes do compartilhamento.
 
 Veja a [árvore de decisão e as instruções de adoção](skills/README.md). O estado de cada pacote está em [catalog.json](skills/catalog.json); itens `IM` ainda não passaram por avaliação comportamental independente. As skills usam diretamente o formato do Codex; referências, scripts e avaliações podem ser adaptados a outros agentes conforme a [matriz de compatibilidade](skills/compatibility.md), sem presumir descoberta automática.
 

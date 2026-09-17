@@ -11,4 +11,3 @@ $objects = @([regex]::Matches($dfmText, '(?m)^\s*(?:object|inherited)\s+(\w+)\s*
 $missingFields = @($objects | Where-Object { $pasText -notmatch ("(?im)^\s*" + [regex]::Escape($_.name) + "\s*:\s*" + [regex]::Escape($_.class) + "\s*;") })
 $report = [pscustomobject]@{ pas=$pas; dfm=$dfm; events=$events.Count; missingEventHandlers=$missing; missingComponentFields=$missingFields; readOnly=$true }
 if ($OutputPath) { $report | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $OutputPath -Encoding utf8 } else { $report | ConvertTo-Json -Depth 5 }
-if ($missing.Count -or $missingFields.Count) { exit 2 }

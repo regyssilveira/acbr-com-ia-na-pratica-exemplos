@@ -6,7 +6,11 @@
 
 $ErrorActionPreference = 'Stop'
 $report = [ordered]@{
+    schemaVersion = 2
+    toolVersion = 'pilot-v0.8.0'
     generatedAt = (Get-Date).ToString('o')
+    validUntil = (Get-Date).AddDays(30).ToString('o')
+    regenerateWhen = @('trocar revisão ACBr','trocar Delphi ou plataforma','alterar paths/packages','mudar projeto ou configuração')
     readOnly = $true
     machine = [Environment]::MachineName
     powershell = $PSVersionTable.PSVersion.ToString()

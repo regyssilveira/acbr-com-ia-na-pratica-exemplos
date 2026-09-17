@@ -1,6 +1,6 @@
 {
   "book": "ACBr com IA na Prática",
-  "editionTag": "pilot-v0.7.0",
+  "editionTag": "pilot-v0.8.0",
   "states": ["PL", "IM", "CP", "EX", "RV"],
   "examples": [
     {
@@ -37,6 +37,13 @@
       "state": "EX",
       "evidence": ["manifest/evidence/skills-seven-improvements-2026-09-17.md"],
       "limitations": ["Símbolos sintéticos", "Nenhum checkout ACBr é atualizado"]
+    },
+    {
+      "id": "diagnostics-local-lab",
+      "chapters": [3, 5, 10, 11],
+      "state": "EX",
+      "evidence": ["manifest/evidence/skills-guided-entry-2026-09-17.md"],
+      "limitations": ["PAS, DFM e log inteiramente fictícios", "A detecção textual não substitui carregamento no RAD Studio nem compilação"]
     }
   ],
   "skills": [

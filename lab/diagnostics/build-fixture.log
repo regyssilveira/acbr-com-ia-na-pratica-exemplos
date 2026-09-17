@@ -1,0 +1,3 @@
+Mapper.pas(25) Warning: W1006 Unit 'pcnConversao' is deprecated
+Mapper.pas(51) Warning: W1000 Symbol 'tnSaida' is deprecated
+BrokenForm.pas(12) Error: E2003 Undeclared identifier: 'ACBrNFe1'
