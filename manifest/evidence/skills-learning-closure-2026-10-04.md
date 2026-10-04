@@ -1,8 +1,8 @@
 # Fechamento do percurso de aprendizagem — 2026-10-04
 
-Referência: `pilot-v0.9.0`. Validação integral pelo `scripts/validate-all.ps1`, Delphi Win32 37.0 e DCUs em `D:\Delphi\ACBr\Lib\Delphi\LibD37\Win32\Release`.
+Referência: `pilot-v0.9.1`. Validação integral pelo `scripts/validate-all.ps1`, Delphi Win32 37.0 e DCUs em `D:\Delphi\ACBr\Lib\Delphi\LibD37\Win32\Release`.
 
-- Aplicação compilada; avisos legados mantidos explícitos.
+- Aplicação compilada; avisos legados mantidos explícitos. Rechecagem posterior removeu os três blocos `with` do mapeador, preservando o resultado e os 13 testes aprovados.
 - DUnitX: 13 encontrados, 13 aprovados, zero falhas, erros ou vazamentos.
 - Novos testes: reentrada na mesma instância/thread, venda inválida sem envio e falha de persistência sem retorno de sucesso.
 - Seis laboratórios locais aprovados; nenhum serviço externo acessado.

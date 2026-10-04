@@ -4,7 +4,7 @@ Repositório público dos exemplos do livro **ACBr com IA na Prática: Inteligê
 
 > Estado: piloto executável. O manifesto registra build Win32, testes DUnitX e execução local simulada. Nenhuma operação fiscal externa foi realizada.
 
-Versão correspondente à edição candidata do livro: `pilot-v0.9.0`.
+Versão correspondente à edição candidata do livro: `pilot-v0.9.1`.
 
 ## Escopo
 
