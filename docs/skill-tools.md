@@ -71,7 +71,16 @@ O teste usa uma pasta temporária, verifica preservação do log original, remo�
 .\scripts\install-skills.ps1 -Profile dfe -CheckUpdates
 ```
 
-O localizador pontua termos do problema e sempre oferece o roteador geral quando não encontra correspondência. O instalador apenas simula, a menos que `-Apply` seja informado, e cria backup datado antes de atualizar uma pasta existente.
+O localizador pontua termos do problema e sempre oferece o roteador geral quando não encontra correspondência. O instalador usa por padrão `.agents/skills` na pasta do usuário; `-Destination` permite outro destino. Sem `-Apply`, apenas consulta ou simula. A comparação inclui todos os arquivos, não só `SKILL.md`. Reinstalar um pacote idêntico não altera nada; atualizar substitui o pacote completo e preserva a versão anterior na pasta irmã `skills.backups`, fora da descoberta. Abra uma nova sessão e confira a skill pelo nome; copiar não prova ativação.
+
+## Corrigir uma cópia e conferir
+
+```powershell
+.\scripts\prepare-diagnostics-exercise.ps1 -OutputDirectory '.\saida\correcao-001'
+.\scripts\test-diagnostics-exercise.ps1 -InputDirectory '.\saida\correcao-001'
+```
+
+A primeira conferência deve falhar. Peça à skill `acbr-component-work` que corrija somente as cópias: declarar `ACBrNFe1: TACBrNFe` e declarar/implementar `MissingClick`, sem lógica fiscal. Confira o diff e rode o segundo comando novamente: deve informar zero eventos e campos ausentes. `lab/diagnostics/expected` fornece uma referência após sua tentativa. As fixtures originais continuam defeituosas por intenção. O gate é textual, não comprova compilação ou abertura no designer; não requer certificado ou serviço externo.
 
 ## Preparar o contexto e escolher um fluxo
 

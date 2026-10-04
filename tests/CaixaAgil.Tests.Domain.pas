@@ -1,4 +1,4 @@
-unit CaixaAgil.Tests.Domain;
+﻿unit CaixaAgil.Tests.Domain;
 
 interface
 
@@ -19,6 +19,9 @@ type
     [Test] procedure MissingSchemaDirectoryIsRejected;
     [Test] procedure ExampleConfigurationLoadsAndValidates;
     [Test] procedure TechnicalMapperCreatesDraftInACBr;
+    [Test] procedure ReentrantEmissionIsBlocked;
+    [Test] procedure InvalidSaleDoesNotReachGateway;
+    [Test] procedure PersistenceFailureDoesNotReturnSuccess;
   end;
 
 implementation
@@ -35,11 +38,92 @@ uses
   CaixaAgil.Infrastructure;
 
 type
+  TControlledGateway = class(TInterfacedObject, IEmissionGateway)
+  public
+    SubmitCount: Integer;
+    BeforeReturn: TProc;
+    function Submit(const ASale: TSale; const AAttemptId: string): TEmissionResult;
+  end;
+  TRecordingRepository = class(TInterfacedObject, IAttemptRepository)
+  public
+    StartCount, FinishCount: Integer;
+    RaiseOnFinish, ResultStored: Boolean;
+    procedure Start(const AAttemptId: string; ASaleNumber: Integer);
+    procedure Finish(const AResult: TEmissionResult);
+  end;
   TMemoryRepository = class(TInterfacedObject, IAttemptRepository)
   public
     procedure Start(const AAttemptId: string; ASaleNumber: Integer);
     procedure Finish(const AResult: TEmissionResult);
   end;
+
+function TControlledGateway.Submit(const ASale: TSale; const AAttemptId: string): TEmissionResult;
+begin
+  Inc(SubmitCount);
+  if Assigned(BeforeReturn) then BeforeReturn();
+  Result := TEmissionResult.Create(esAuthorized, 100, 'Resultado fictício', AAttemptId);
+end;
+
+procedure TRecordingRepository.Start(const AAttemptId: string; ASaleNumber: Integer);
+begin
+  Inc(StartCount);
+end;
+
+procedure TRecordingRepository.Finish(const AResult: TEmissionResult);
+begin
+  Inc(FinishCount);
+  if RaiseOnFinish then raise EInvalidOp.Create('Falha fictícia de persistência');
+  ResultStored := True;
+end;
+
+procedure TDomainTests.ReentrantEmissionIsBlocked;
+var Gateway: TControlledGateway; Repository: TRecordingRepository;
+    Service: TEmissionService;
+begin
+  Gateway := TControlledGateway.Create;
+  Repository := TRecordingRepository.Create;
+  Service := TEmissionService.Create(Gateway, Repository);
+  try
+    Gateway.BeforeReturn := procedure begin
+      Assert.WillRaise(procedure begin Service.Emit(TSale.Fictional); end, EInvalidOp);
+    end;
+    Service.Emit(TSale.Fictional);
+    Assert.AreEqual(1, Gateway.SubmitCount);
+    Assert.AreEqual(1, Repository.StartCount);
+  finally Service.Free; end;
+end;
+
+procedure TDomainTests.InvalidSaleDoesNotReachGateway;
+var Gateway: TControlledGateway; Repository: TRecordingRepository;
+    Service: TEmissionService; Sale: TSale;
+begin
+  Gateway := TControlledGateway.Create;
+  Repository := TRecordingRepository.Create;
+  Service := TEmissionService.Create(Gateway, Repository);
+  try
+    Sale := TSale.Fictional;
+    SetLength(Sale.Items, 0);
+    Assert.WillRaise(procedure begin Service.Emit(Sale); end, EArgumentException);
+    Assert.AreEqual(0, Gateway.SubmitCount);
+    Assert.AreEqual(0, Repository.StartCount);
+  finally Service.Free; end;
+end;
+
+procedure TDomainTests.PersistenceFailureDoesNotReturnSuccess;
+var Gateway: TControlledGateway; Repository: TRecordingRepository;
+    Service: TEmissionService;
+begin
+  Gateway := TControlledGateway.Create;
+  Repository := TRecordingRepository.Create;
+  Repository.RaiseOnFinish := True;
+  Service := TEmissionService.Create(Gateway, Repository);
+  try
+    Assert.WillRaise(procedure begin Service.Emit(TSale.Fictional); end, EInvalidOp);
+    Assert.AreEqual(1, Gateway.SubmitCount);
+    Assert.AreEqual(1, Repository.FinishCount);
+    Assert.IsFalse(Repository.ResultStored);
+  finally Service.Free; end;
+end;
 
 procedure TMemoryRepository.Start(const AAttemptId: string; ASaleNumber: Integer);
 begin

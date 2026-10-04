@@ -53,7 +53,7 @@ O instalador assistido mostra as ações sem alterar nada por padrão:
 .\scripts\install-skills.ps1 -Profile dfe -Apply
 ```
 
-Antes de usar `-Apply`, confira o destino exibido. Uma pasta existente recebe uma cópia de segurança datada.
+Antes de usar `-Apply`, confira o destino exibido: por padrão, `.agents/skills` na pasta do usuário. Pacotes idênticos não são recopiados. A atualização compara todos os arquivos e preserva a versão anterior na pasta irmã `skills.backups`, fora da descoberta das skills.
 Os perfis disponíveis são `core`, `dfe`, `payments`, `devices` e `full`. Use `-CheckUpdates` para comparar a instalação com esta origem sem copiar arquivos.
 
 O procedimento não depende de um modelo específico. Outras ferramentas podem reutilizar as instruções, referências, scripts e casos de avaliação, mas a descoberta automática de `SKILL.md` deve ser considerada não verificada até ser confirmada na documentação da ferramenta.

@@ -54,6 +54,40 @@ try {
     & (Join-Path $PSScriptRoot 'install-skills.ps1') -Destination $installRoot -Skill 'acbr-dfe' -Apply
     if (-not (Test-Path -LiteralPath (Join-Path $installRoot 'acbr-dfe\SKILL.md'))) { throw 'Instalador não copiou a skill.' }
 
+    & (Join-Path $PSScriptRoot 'install-skills.ps1') -Destination $installRoot -Skill 'acbr-dfe' -Apply
+    if (@(Get-ChildItem -LiteralPath $installRoot -Filter SKILL.md -Recurse).Count -ne 1) { throw 'Reinstalação criou skill aninhada.' }
+    $obsolete = Join-Path $installRoot 'acbr-dfe/obsolete.txt'
+    [IO.File]::WriteAllText($obsolete, 'fixture antiga')
+    & (Join-Path $PSScriptRoot 'install-skills.ps1') -Destination $installRoot -Skill 'acbr-dfe' -CheckUpdates
+    if (-not (Test-Path -LiteralPath $obsolete)) { throw 'Consulta alterou o pacote.' }
+    & (Join-Path $PSScriptRoot 'install-skills.ps1') -Destination $installRoot -Skill 'acbr-dfe' -Apply
+    if (Test-Path -LiteralPath $obsolete) { throw 'Atualização reteve arquivo obsoleto.' }
+    if (@(Get-ChildItem -LiteralPath "$installRoot.backups" -Filter obsolete.txt -Recurse).Count -ne 1) { throw 'Backup externo incompleto.' }
+    # Mudança em referência/script também exige atualização, mesmo com SKILL.md idêntico.
+    & (Join-Path $PSScriptRoot 'install-skills.ps1') -Destination $installRoot -Skill 'acbr-component-work' -Apply
+    $package = Join-Path $installRoot 'acbr-component-work'
+    foreach ($subdir in @('references','scripts')) {
+        $resource = Get-ChildItem -LiteralPath (Join-Path $package $subdir) -File | Select-Object -First 1
+        $expectedHash = (Get-FileHash -LiteralPath $resource.FullName).Hash
+        [IO.File]::AppendAllText($resource.FullName, "`nfixture alterada")
+        & (Join-Path $PSScriptRoot 'install-skills.ps1') -Destination $installRoot -Skill 'acbr-component-work' -Apply
+        if ((Get-FileHash -LiteralPath $resource.FullName).Hash -ne $expectedHash) { throw 'Atualização não restaurou recurso.' }
+    }
+    if (@(Get-ChildItem -LiteralPath $installRoot -Filter SKILL.md -Recurse).Count -ne 2) { throw 'Instalação criou descoberta duplicada.' }
+    $exercise = Join-Path $tempRoot 'exercise'
+    $fixture = Join-Path $root 'lab/diagnostics/BrokenForm.pas'
+    $fixtureHash = (Get-FileHash -LiteralPath $fixture).Hash
+    & (Join-Path $PSScriptRoot 'prepare-diagnostics-exercise.ps1') -OutputDirectory $exercise
+    $refused = $false
+    try { & (Join-Path $PSScriptRoot 'prepare-diagnostics-exercise.ps1') -OutputDirectory $exercise } catch { $refused = $true }
+    if (-not $refused) { throw 'Preparação sobrescreveu pasta existente.' }
+    $failed = $false
+    try { & (Join-Path $PSScriptRoot 'test-diagnostics-exercise.ps1') -InputDirectory $exercise } catch { $failed = $true }
+    if (-not $failed) { throw 'Exercício defeituoso passou sem correção.' }
+    Copy-Item -LiteralPath (Join-Path $root 'lab/diagnostics/expected/BrokenForm.pas') -Destination (Join-Path $exercise 'BrokenForm.pas')
+    & (Join-Path $PSScriptRoot 'test-diagnostics-exercise.ps1') -InputDirectory $exercise
+    if ((Get-FileHash -LiteralPath $fixture).Hash -ne $fixtureHash) { throw 'Fixture original alterada.' }
+
     # Doctor e pacote: trabalham em cópias e exigem pasta de saída nova.
     $doctor = Join-Path $tempRoot 'doctor.json'
     & (Join-Path $PSScriptRoot 'acbr-doctor.ps1') -ProjectFile $project -OutputPath $doctor

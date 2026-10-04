@@ -23,6 +23,7 @@ config.local.*
 appsettings.local.ini
 logs/
 output/
+saida/
 authorized/
 cancelled/
 *.xml

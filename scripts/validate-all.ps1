@@ -7,6 +7,10 @@ $ErrorActionPreference = 'Stop'
 
 $compiler = Join-Path $RadStudioRoot 'bin\dcc32.exe'
 $acbrDcu = Join-Path $AcbrLibrary 'ACBrNFe.dcu'
+if (-not (Test-Path -LiteralPath $acbrDcu) -and (Test-Path -LiteralPath (Join-Path $AcbrLibrary 'Release/ACBrNFe.dcu'))) {
+    $AcbrLibrary = Join-Path $AcbrLibrary 'Release'
+    $acbrDcu = Join-Path $AcbrLibrary 'ACBrNFe.dcu'
+}
 $dunitxDcu = Join-Path $RadStudioRoot 'lib\win32\release\DUnitX.TestFramework.dcu'
 foreach ($required in @($compiler, $acbrDcu, $dunitxDcu)) {
     if (-not (Test-Path -LiteralPath $required -PathType Leaf)) {
@@ -30,7 +34,12 @@ Write-Host "Pré-voo OK: Delphi=$compiler; ACBr=$acbrDcu; DUnitX=$dunitxDcu"
 & (Join-Path $PSScriptRoot 'validate-skill-catalog.ps1')
 & (Join-Path $PSScriptRoot 'validate-behavioral-suite.ps1')
 & (Join-Path $PSScriptRoot 'check-text-encoding.ps1')
-$acbrRoot = Split-Path (Split-Path (Split-Path (Split-Path $AcbrLibrary -Parent) -Parent) -Parent) -Parent
+$acbrRoot = [IO.Path]::GetFullPath($AcbrLibrary)
+while (-not (Test-Path -LiteralPath (Join-Path $acbrRoot 'Fontes') -PathType Container)) {
+    $parent = Split-Path $acbrRoot -Parent
+    if (-not $parent -or $parent -eq $acbrRoot) { throw 'Não foi possível localizar Fontes nos ancestrais de AcbrLibrary.' }
+    $acbrRoot = $parent
+}
 & (Join-Path $PSScriptRoot 'validate-acbr-coverage.ps1') -AcbrRoot $acbrRoot
 
 Write-Host 'OK: build, testes, laboratórios, ferramentas, segurança, skills, catálogo, codificação e cobertura ACBr concluídos.'
