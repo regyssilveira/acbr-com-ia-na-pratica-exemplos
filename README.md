@@ -4,7 +4,7 @@ Repositório público dos exemplos do livro **ACBr com IA na Prática: Inteligê
 
 > Estado: piloto executável. O manifesto registra build Win32, testes DUnitX e execução local simulada. Nenhuma operação fiscal externa foi realizada.
 
-Versão correspondente à edição candidata do livro: `pilot-v0.9.1`.
+Versão correspondente à edição candidata do livro: `pilot-v0.9.2`.
 
 ## Escopo
 
@@ -47,7 +47,7 @@ A versão do Delphi, a revisão dos fontes ACBr, as plataformas e as dependênci
 .\scripts\validate-all.ps1
 ```
 
-O comando faz um pré-voo da instalação, compila a aplicação, executa treze testes DUnitX, roda os três cenários locais, grava evidência temporária em SQLite e verifica se arquivos sensíveis foram rastreados. Os diretórios de saída são ignorados pelo Git. Para informar caminhos próprios e conferir a saída esperada, siga [Primeiros passos reproduzíveis](docs/primeiros-passos.md). O gate recria o SQLite local do laboratório.
+O comando faz um pré-voo da instalação, compila a aplicação, executa dezesseis testes DUnitX, roda os três cenários locais, grava evidência temporária em SQLite e verifica se arquivos sensíveis foram rastreados. Os diretórios de saída são ignorados pelo Git. Para informar caminhos próprios e conferir a saída esperada, siga [Primeiros passos reproduzíveis](docs/primeiros-passos.md). O gate recria o SQLite local do laboratório.
 
 ## Skills ACBr
 

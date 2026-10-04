@@ -1,4 +1,4 @@
-program CaixaAgil.Tests;
+﻿program CaixaAgil.Tests;
 
 {$APPTYPE CONSOLE}
 
@@ -6,6 +6,10 @@ uses
   System.SysUtils,
   DUnitX.Loggers.Console,
   DUnitX.TestFramework,
+  CaixaAgil.Tests.UI in 'CaixaAgil.Tests.UI.pas',
+  CaixaAgil.App in '..\project\CaixaAgil\src\CaixaAgil.App.pas',
+  CaixaAgil.Application.Demo in '..\project\CaixaAgil\src\CaixaAgil.Application.Demo.pas',
+  CaixaAgil.Fiscal.DataModule in '..\project\CaixaAgil\src\CaixaAgil.Fiscal.DataModule.pas',
   CaixaAgil.Tests.Domain in 'CaixaAgil.Tests.Domain.pas',
   CaixaAgil.Domain.Sale in '..\project\CaixaAgil\src\CaixaAgil.Domain.Sale.pas',
   CaixaAgil.Domain.Emission in '..\project\CaixaAgil\src\CaixaAgil.Domain.Emission.pas',

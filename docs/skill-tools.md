@@ -80,7 +80,7 @@ O localizador pontua termos do problema e sempre oferece o roteador geral quando
 .\scripts\test-diagnostics-exercise.ps1 -InputDirectory '.\saida\correcao-001'
 ```
 
-A primeira conferência deve falhar. Peça à skill `acbr-component-work` que corrija somente as cópias: declarar `ACBrNFe1: TACBrNFe` e declarar/implementar `MissingClick`, sem lógica fiscal. Confira o diff e rode o segundo comando novamente: deve informar zero eventos e campos ausentes. `lab/diagnostics/expected` fornece uma referência após sua tentativa. As fixtures originais continuam defeituosas por intenção. O gate é textual, não comprova compilação ou abertura no designer; não requer certificado ou serviço externo.
+A primeira conferência deve falhar. Peça à skill `acbr-component-work` que corrija somente as cópias: declarar `ACBrNFe1: TACBrNFe` e declarar/implementar `MissingClick`, sem lógica fiscal. Confira o diff e rode o segundo comando novamente: deve informar zero eventos e campos ausentes. O gate exige preservar os componentes e `Button1.OnClick`; rejeita apagar o problema do DFM ou substituir declaração por comentário. `lab/diagnostics/expected` fornece uma referência após sua tentativa. As fixtures originais continuam defeituosas por intenção. O gate é textual, não comprova compilação ou abertura no designer; não requer certificado ou serviço externo. `scripts/test-diagnostics-gate.ps1` verifica o par coerente e oito correções incompletas.
 
 ## Preparar o contexto e escolher um fluxo
 

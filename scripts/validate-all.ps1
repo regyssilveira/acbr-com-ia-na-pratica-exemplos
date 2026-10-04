@@ -29,6 +29,7 @@ Write-Host "Pré-voo OK: Delphi=$compiler; ACBr=$acbrDcu; DUnitX=$dunitxDcu"
 & (Join-Path $PSScriptRoot 'run-version-update-lab.ps1')
 & (Join-Path $PSScriptRoot 'run-diagnostics-lab.ps1')
 & (Join-Path $PSScriptRoot 'test-skill-tools.ps1')
+& (Join-Path $PSScriptRoot 'test-diagnostics-gate.ps1')
 & (Join-Path $PSScriptRoot 'verify-no-secrets.ps1')
 & (Join-Path $PSScriptRoot 'validate-skills.ps1')
 & (Join-Path $PSScriptRoot 'validate-skill-catalog.ps1')

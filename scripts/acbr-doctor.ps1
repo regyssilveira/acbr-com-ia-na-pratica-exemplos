@@ -7,7 +7,7 @@
 $ErrorActionPreference = 'Stop'
 $report = [ordered]@{
     schemaVersion = 2
-    toolVersion = 'pilot-v0.9.1'
+    toolVersion = 'pilot-v0.9.2'
     generatedAt = (Get-Date).ToString('o')
     validUntil = (Get-Date).AddDays(30).ToString('o')
     regenerateWhen = @('trocar revisão ACBr','trocar Delphi ou plataforma','alterar paths/packages','mudar projeto ou configuração')

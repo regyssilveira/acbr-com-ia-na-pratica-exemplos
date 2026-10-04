@@ -16,6 +16,10 @@ type
     btnVerificarAmbiente: TButton;
     memResultado: TMemo;
     procedure btnVerificarAmbienteClick(Sender: TObject);
+  private
+    FExecutingLaboratory: Boolean;
+  protected
+    procedure ExecuteLocalLaboratory; virtual;
   end;
 
 var
@@ -32,6 +36,23 @@ uses
 {$R *.dfm}
 
 procedure TfrmPrincipal.btnVerificarAmbienteClick(Sender: TObject);
+var
+  WasEnabled: Boolean;
+begin
+  if FExecutingLaboratory then
+    Exit;
+  WasEnabled := btnVerificarAmbiente.Enabled;
+  FExecutingLaboratory := True;
+  try
+    btnVerificarAmbiente.Enabled := False;
+    ExecuteLocalLaboratory;
+  finally
+    btnVerificarAmbiente.Enabled := WasEnabled;
+    FExecutingLaboratory := False;
+  end;
+end;
+
+procedure TfrmPrincipal.ExecuteLocalLaboratory;
 var
   Config: TFiscalConfiguration;
   ConfigFile: string;
