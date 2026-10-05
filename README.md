@@ -2,9 +2,16 @@
 
 Repositório público dos exemplos do livro **ACBr com IA na Prática: Inteligência artificial aplicada ao dia a dia do desenvolvimento com Delphi e ACBr**, de Régys Borges da Silveira.
 
-> Estado: piloto executável. O manifesto registra build Win32, testes DUnitX e execução local simulada. Nenhuma operação fiscal externa foi realizada.
+## Livro publicado — onde comprar
 
-Versão correspondente à edição candidata do livro: `pilot-v0.9.2`.
+- [Edição física na UICLAP](https://loja.uiclap.com/titulo/ua209465/).
+- [Edição Kindle na Amazon](https://www.amazon.com.br/dp/B0HLYF1R26).
+
+Publicação informada pelo autor em 4 de outubro de 2026. Os exemplos e as skills deste repositório continuam públicos e não exigem a compra do livro para acesso.
+
+> Estado dos exemplos: laboratório executável. O manifesto registra build Win32, testes DUnitX e execução local simulada. Nenhuma operação fiscal externa foi realizada. A publicação do livro não amplia os estados de evidência técnica dos exemplos ou das skills.
+
+Referência técnica preservada da composição da primeira edição: `pilot-v0.9.2`. O nome histórico da tag não significa que o livro publicado ainda esteja em leitura-piloto.
 
 ## Escopo
 
